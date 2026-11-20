@@ -1,0 +1,2930 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#eee3d4">
+<meta name="description" content="이진원과 서희의 결혼식에 초대합니다. 2027년 2월 27일 오후 5시.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Our Ever After – A Journey to Forever</title>
+<style>
+/* Offline-safe system font stack; no external font request required. */
+
+:root {
+  --paper: #f0e4d4;
+  --paper-deep: #e8d8c5;
+  --ink: #55483c;
+  --muted: #8a7866;
+  --gold: #ad8d68;
+  --gold-soft: #d4b99a;
+  --line: rgba(151, 119, 85, .36);
+  --serif: 'Cormorant Garamond', 'Noto Serif KR', Georgia, serif;
+  --korean: 'Noto Serif KR', 'Batang', serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
+body {
+  color: var(--ink);
+  font-family: var(--korean);
+  background:
+    radial-gradient(ellipse at 15% 12%, rgba(244,233,217,.58), transparent 38%),
+    radial-gradient(ellipse at 84% 86%, rgba(213,191,164,.25), transparent 42%),
+    linear-gradient(135deg, #e9dccb 0%, #e2d1bd 50%, #f0e5d7 100%);
+}
+button, input, select, textarea { font: inherit; }
+button { color: inherit; }
+.invitation-app {
+  width: 100%; height: 100dvh; min-height: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+  padding: max(12px, env(safe-area-inset-top)) 14px max(8px, env(safe-area-inset-bottom));
+}
+.topbar { width: min(100%, 560px); display:flex; justify-content:space-between; align-items:center; color:#927b62; letter-spacing:.19em; font: 500 10px var(--serif); padding: 0 3px; }
+.topbar__edition { opacity:.72; font-size:9px; }
+.viewer { width:100%; flex:1; min-height:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; }
+.book-stage {
+  position:relative;
+  width:min(92vw, 460px, calc((100dvh - 174px) * .585));
+  aspect-ratio:.585;
+  max-height:calc(100dvh - 174px);
+  flex:0 1 auto;
+  isolation:isolate;
+  filter:drop-shadow(0 18px 26px rgba(83,62,43,.17));
+}
+.book-stage::before {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:5px -5px -5px 5px;
+  border:1px solid rgba(143,112,80,.22);
+  border-radius:4px 12px 12px 4px;
+  background:linear-gradient(90deg,#e6d8c7 0%,#f5eadc 8%,#e7d8c6 100%);
+  box-shadow:0 8px 18px rgba(83,62,43,.10);
+}
+.book {
+  position:relative;
+  width:100%;
+  height:100%;
+  margin:0 auto;
+  touch-action:pan-y;
+  -webkit-tap-highlight-color:transparent;
+}
+.book .page {
+  overflow:hidden;
+  background:var(--paper);
+  border:0;
+}
+.book .page-content {
+  position:relative;
+  width:100%;
+  height:100%;
+  min-width:0;
+  min-height:0;
+  overflow:hidden;
+}
+.page-fallback {
+  width:100%; height:100%; display:grid; place-content:center; text-align:center;
+  color:var(--muted); font-size:13px; line-height:2;
+  background:linear-gradient(145deg,#fbf5ed,#f2e5d6);
+  border:1px solid rgba(169,137,103,.35);
+}
+
+.paper-page {
+  position:relative; width:100%; height:100%; overflow:hidden; isolation:isolate;
+  padding:clamp(18px,4.2vw,30px) clamp(17px,4.8vw,29px) 37px;
+  border:1px solid rgba(169,137,103,.35);
+  border-radius:5px 12px 12px 5px;
+  background-color:var(--paper);
+  background-image:
+    radial-gradient(ellipse at 14% 8%, rgba(248,239,226,.62), transparent 34%),
+    radial-gradient(ellipse at 90% 93%, rgba(219,198,172,.22), transparent 35%),
+    repeating-linear-gradient(0deg, rgba(145,111,79,.018) 0px, rgba(145,111,79,.018) 1px, transparent 1px, transparent 4px),
+    linear-gradient(145deg,#fbf5ed,#f2e5d6 100%);
+  box-shadow:inset 0 0 28px rgba(181,147,111,.09), inset 0 0 0 5px rgba(255,255,255,.16);
+}
+.paper-page::after { content:""; position:absolute; inset:10px; border:1px solid rgba(175,143,109,.16); border-radius:3px 9px 9px 3px; pointer-events:none; z-index:0; }
+.paper-page::before { content:"✈"; position:absolute; z-index:2; right:17%; top:22px; font:20px var(--serif); color:#b79b7a; transform:rotate(-9deg); opacity:.8; }
+.page-inner { height:100%; min-height:0; display:flex; flex-direction:column; align-items:center; text-align:center; }
+.page-eyebrow { margin:7px 0 13px; letter-spacing:.23em; color:#8c745a; font:500 clamp(10px,2.6vw,13px) var(--serif); }
+.page-title { margin:0; font:500 clamp(23px,6vw,31px) var(--serif); letter-spacing:.03em; }
+.page-subtitle { font-size:clamp(10px,2.9vw,13px); color:var(--muted); margin:7px 0 0; line-height:1.7; }
+.airmail-stamp { position:absolute; right:12px; top:12px; width:62px; height:62px; display:grid; place-items:center; border:1px dashed rgba(174,143,110,.6); border-radius:50%; color:#b99b78; font:10px var(--serif); transform:rotate(12deg); opacity:.65; }
+.airmail-stamp::before { content:"✈"; position:absolute; font-size:20px; }
+.page-number { position:absolute; bottom:15px; left:0; right:0; text-align:center; color:#806f5d; letter-spacing:.12em; font:11px var(--serif); z-index:3; }
+.ornament { width:54px; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); margin:13px auto; position:relative; }
+.ornament::after { content:"✦"; position:absolute; top:-8px; left:50%; transform:translateX(-50%); color:var(--gold); font-size:10px; background:var(--paper); padding:0 5px; }
+.small-caps { font:500 10px var(--serif); letter-spacing:.18em; color:#947b60; }
+
+/* 01 Cover */
+.cover-page { padding:0; background:#e8d9c6; }
+.cover-page::before { display:none; }
+.cover-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 43%; }
+.cover-wash { position:absolute; inset:0; background:linear-gradient(180deg,rgba(229,213,191,.74) 0%,rgba(235,221,201,.20) 30%,rgba(237,223,203,.22) 62%,rgba(230,210,184,.86) 100%),linear-gradient(rgba(229,213,191,.20),rgba(229,213,191,.20)); }
+.cover-frame { position:absolute; inset:13px; border:1px solid rgba(239,226,207,.82); border-radius:3px 9px 9px 3px; }
+.cover-copy { position:absolute; top:6.4%; left:12px; right:12px; text-align:center; color:#4c4035; text-shadow:0 1px 8px rgba(242,229,210,.92); }
+.cover-script { margin:0; font:italic 400 clamp(42px,9.5vw,58px)/1.04 'Cormorant Garamond', Georgia, serif; letter-spacing:0; }
+.cover-tagline { margin:1px 0 0; font:500 12px var(--serif); letter-spacing:.08em; }
+.cover-bottom { position:absolute; left:15px; right:15px; bottom:7.1%; text-align:center; color:#51463b; text-shadow:0 1px 7px rgba(242,229,210,.95); }
+.cover-names { margin:0; font-size:clamp(21px,5vw,27px); letter-spacing:.19em; }
+.cover-date { margin:8px 0 4px; font:500 13px var(--serif); letter-spacing:.09em; }
+.cover-venue { margin:0; font-size:11px; letter-spacing:.08em; }
+.cover-flight { font:19px var(--serif); color:#a98d69; margin:0 0 9px; }
+.cover-page .page-number { color:#615346; bottom:14px; }
+
+/* 02 Invitation */
+.invitation-page { background:linear-gradient(rgba(248,240,229,.64),rgba(248,240,229,.72)),url('assets/couple-cover.jpg') center 43%/cover; }
+.invitation-copy { margin: clamp(16px,5vh,42px) 0 0; font-size:clamp(13px,3.4vw,16px); line-height:2.05; letter-spacing:.02em; word-break:keep-all; }
+.parent-lines { width:100%; margin-top:auto; padding-bottom:14px; display:grid; grid-template-columns:1fr 1fr; gap:12px; font-size:11px; line-height:1.8; }
+.parent-lines strong { display:block; font-size:15px; font-weight:500; margin:2px 0; }
+.parent-lines span { color:#897762; font-size:10px; }
+.invitation-signoff { margin:17px 0 0; font-size:12px; line-height:1.8; }
+
+/* 03 Save the date */
+.date-card { width:100%; margin:22px 0 12px; padding:13px 8px 12px; border:1px solid #cdb69b; border-radius:10px; outline:1px solid rgba(184,152,117,.26); outline-offset:4px; background:rgba(255,251,245,.34); }
+.date-main { font:500 clamp(27px,7vw,35px) var(--serif); letter-spacing:.02em; }
+.date-time { margin-top:1px; font:500 14px var(--serif); letter-spacing:.12em; }
+.dday { font:500 24px var(--serif); letter-spacing:.08em; color:#9a7d5c; margin:12px 0 5px; }
+.calendar { width:100%; margin-top:13px; }
+.calendar-month { margin-bottom:9px; font:500 17px var(--serif); }
+.calendar-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:3px 0; font:12px var(--serif); }
+.calendar-grid span { min-height:28px; display:grid; place-items:center; }
+.calendar-grid .weekday { font:500 10px var(--serif); color:#9b846b; min-height:22px; }
+.calendar-grid .event-day { width:27px; height:27px; min-height:27px; margin:auto; border-radius:50%; background:#a98a68; color:white; box-shadow:0 2px 4px rgba(88,65,44,.2); }
+.calendar-note { margin:auto 0 10px; font-size:11px; line-height:1.7; color:#87745f; }
+
+/* 04 Travel log */
+.travel-page { padding-bottom:36px; }
+.travel-intro { margin:5px 0 12px; font-size:11px; color:#907c67; }
+.postcard-layout { position:relative; width:100%; flex:1; min-height:0; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1.06fr .92fr; gap:12px 9px; padding:3px 2px 5px; }
+.stamp-photo { position:relative; margin:0; padding:6px; background:#fffdf8; box-shadow:0 4px 12px rgba(85,65,45,.17); border:1px solid #e8d9c7; transform:rotate(-4deg); min-height:0; }
+.stamp-photo:nth-child(2) { transform:rotate(4deg); align-self:center; }
+.stamp-photo:nth-child(3) { transform:rotate(2deg); grid-column:1/3; width:63%; justify-self:center; }
+.stamp-photo img { width:100%; height:100%; display:block; object-fit:cover; }
+.stamp-photo figcaption { position:absolute; bottom:7px; left:0; right:0; text-align:center; color:#fff; text-shadow:0 1px 3px #4a4034; font:italic 11px var(--serif); }
+.travel-quote { font:italic 24px var(--serif); color:#a68a6a; margin:7px 0 2px; }
+.more-button { flex:none; margin-top:9px; border:1px solid #c7ad8f; border-radius:30px; padding:8px 22px; background:rgba(255,255,255,.35); font-size:11px; letter-spacing:.08em; cursor:pointer; }
+
+/* 05 Directions */
+.direction-page { padding-left:clamp(14px,4vw,24px); padding-right:clamp(14px,4vw,24px); }
+.venue-photo-wrap { width:100%; height:23%; min-height:100px; margin:14px 0 12px; padding:6px; background:#fffdf8; border:1px solid #e4d4c1; transform:rotate(-2deg); box-shadow:0 4px 11px rgba(84,64,45,.14); }
+.venue-photo-wrap img { width:100%; height:100%; object-fit:cover; object-position:50% 45%; display:block; }
+.venue-name { margin:0; font-size:17px; font-weight:500; }
+.venue-address { margin:5px 0 10px; font-size:11px; line-height:1.7; color:#756656; }
+.map-button { border:1px solid #cdb69b; border-radius:24px; background:rgba(255,255,255,.38); padding:8px 23px; color:#665443; font-size:11px; text-decoration:none; }
+.directions-details { width:100%; text-align:left; margin-top:13px; padding-top:10px; border-top:1px solid rgba(170,140,107,.35); font-size:10px; line-height:1.8; }
+.directions-details p { margin:3px 0; }
+.contact-grid { display:grid; grid-template-columns:66px 1fr; gap:3px 7px; margin-top:8px; font-size:10px; line-height:1.8; }
+.contact-grid strong { font-weight:500; color:#8a7358; }
+.bank-info { margin-top:8px; padding-top:7px; border-top:1px dashed rgba(170,140,107,.4); }
+.bank-info p { margin:2px 0; }
+
+/* 06 RSVP */
+.rsvp-page { padding:clamp(15px,3.5vw,24px) clamp(15px,4.3vw,25px) 35px; }
+.rsvp-page .page-eyebrow { margin:2px 0 7px; }
+.rsvp-title { margin:0; font-size:clamp(20px,5.2vw,25px); font-weight:500; }
+.rsvp-lead { margin:4px 0 10px; color:#88745e; font-size:11px; }
+.rsvp-form { width:100%; text-align:left; display:flex; flex-direction:column; gap:8px; min-height:0; }
+.form-group { min-width:0; }
+.form-label { display:flex; align-items:center; gap:5px; margin:0 0 4px; color:#6f5c49; font-size:10px; font-weight:600; }
+.form-label .form-icon { width:15px; text-align:center; font-size:12px; }
+.rsvp-input, .rsvp-select, .rsvp-textarea { display:block; width:100%; min-width:0; border:1px solid #d8c7b3; border-radius:10px; padding:8px 11px; background:rgba(255,255,255,.52); color:#584a3d; outline:none; font-size:11px; }
+.rsvp-input:focus, .rsvp-select:focus, .rsvp-textarea:focus { border-color:#ad8c67; box-shadow:0 0 0 2px rgba(173,140,103,.12); }
+.rsvp-input::placeholder, .rsvp-textarea::placeholder { color:#b2a18e; }
+.choice-row { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:5px; }
+.choice-row--three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.choice-row--four { grid-template-columns:repeat(4,minmax(0,1fr)); }
+.choice { position:relative; }
+.choice input { position:absolute; opacity:0; width:1px; height:1px; }
+.choice span { display:flex; justify-content:center; align-items:center; min-height:32px; padding:4px 5px; border:1px solid #d9c8b5; border-radius:9px; background:rgba(255,255,255,.42); color:#796855; font-size:10px; white-space:nowrap; cursor:pointer; }
+.choice input:checked + span { border-color:#b99a76; color:#5f4c38; background:#ead9c4; box-shadow:inset 0 0 0 1px rgba(185,154,118,.15); }
+.choice input:focus-visible + span { outline:2px solid #8b6c4c; outline-offset:2px; }
+.rsvp-textarea { min-height:48px; max-height:65px; resize:vertical; }
+.submit-rsvp { display:flex; width:84%; align-self:center; justify-content:center; align-items:center; gap:9px; margin-top:1px; padding:10px 12px; border:0; border-radius:24px; background:linear-gradient(100deg,#b89976,#a98965); color:#fffaf2; font-size:11px; letter-spacing:.04em; cursor:pointer; box-shadow:0 3px 8px rgba(104,76,48,.18); }
+.submit-rsvp:disabled { opacity:.55; cursor:wait; }
+.submit-status { min-height:15px; margin:0; color:#80694e; text-align:center; font-size:9px; line-height:1.5; }
+.form-note { margin:0; color:#9b8874; text-align:center; font-size:9px; }
+
+/* 07 Thank you */
+.thankyou-page { padding:0; }
+.thankyou-page::before { display:none; }
+.thankyou-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 48%; }
+.thankyou-wash { position:absolute; inset:0; background:linear-gradient(180deg,rgba(249,242,232,.59),rgba(248,240,229,.73) 42%,rgba(248,239,226,.31) 100%); }
+.thankyou-frame { position:absolute; inset:13px; border:1px solid rgba(255,255,255,.72); }
+.thankyou-content { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; text-align:center; padding:19% 15px 12%; }
+.thankyou-script { margin:0 0 29px; font:400 clamp(42px,10vw,56px)/1.1 'Cormorant Garamond', serif; color:#705740; text-shadow:0 1px 8px rgba(255,255,255,.9); }
+.thankyou-message { margin:0; font-size:13px; line-height:2.1; color:#5f5143; text-shadow:0 1px 7px rgba(255,255,255,.85); }
+.thankyou-sign { margin-top:19px; font-size:15px; letter-spacing:.16em; color:#594a3b; }
+.final-stamp { margin-top:auto; border:1px solid rgba(160,126,88,.55); border-radius:50%; width:78px; height:78px; display:grid; place-items:center; color:#967858; font:11px var(--serif); line-height:1.35; transform:rotate(-12deg); background:rgba(255,250,242,.26); }
+.final-stamp span { font-size:20px; }
+.thankyou-page .page-number { color:#594b3e; }
+
+.page-controls { width:min(92vw,460px); display:flex; align-items:center; justify-content:space-between; padding:0 3px; }
+.nav-arrow { border:1px solid rgba(158,129,99,.48); width:35px; height:31px; border-radius:18px; background:rgba(255,251,245,.38); cursor:pointer; color:#79644e; font:26px/20px var(--serif); display:grid; place-items:center; }
+.nav-arrow:disabled { opacity:.28; cursor:default; }
+.page-progress { flex:1; display:flex; flex-direction:column; align-items:center; gap:5px; font:11px var(--serif); color:#816e5a; letter-spacing:.12em; }
+.progress-track { width:84px; height:2px; background:rgba(160,130,99,.2); overflow:hidden; }
+.progress-track i { display:block; height:100%; width:14.285%; background:#a98a68; transition:width .3s ease; }
+.swipe-hint { margin:0; color:#9a8875; text-align:center; font-size:9px; letter-spacing:.03em; }
+.swipe-hint span { color:#b39878; }
+.footer-note { color:#a18d77; font:9px var(--serif); letter-spacing:.2em; }
+
+/* Gallery overlay */
+.gallery-modal { position:fixed; inset:0; z-index:20; display:none; align-items:center; justify-content:center; padding:20px; }
+.gallery-modal.is-open { display:flex; }
+.gallery-modal__backdrop { position:absolute; inset:0; background:rgba(45,35,27,.58); backdrop-filter:blur(5px); }
+.gallery-modal__panel { position:relative; width:min(94vw,650px); max-height:88dvh; overflow:auto; padding:28px 22px 24px; border:1px solid #d8c4aa; border-radius:12px; background:linear-gradient(145deg,#fbf6ef,#f0e3d4); box-shadow:0 20px 70px rgba(0,0,0,.25); text-align:center; }
+.gallery-modal__panel .eyebrow { margin:0 0 5px; color:#957a5c; font:11px var(--serif); letter-spacing:.22em; }
+.gallery-modal__panel h2 { margin:0; font:500 27px var(--serif); }
+.modal-caption { margin:6px 0 17px; color:#8c7965; font-size:11px; }
+.modal-close, .lightbox-close { position:absolute; top:10px; right:13px; border:0; background:none; color:#816a51; font-size:28px; cursor:pointer; z-index:3; }
+.gallery-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.gallery-thumb { border:6px solid #fffdf8; padding:0; background:#fff; box-shadow:0 3px 10px rgba(81,61,42,.13); cursor:zoom-in; aspect-ratio:3/4; overflow:hidden; }
+.gallery-thumb img { display:block; width:100%; height:100%; object-fit:cover; }
+.gallery-lightbox { position:fixed; inset:0; z-index:5; display:none; align-items:center; justify-content:center; background:rgba(28,22,17,.91); padding:45px 46px 55px; }
+.gallery-lightbox.is-open { display:flex; }
+.gallery-lightbox img { max-width:100%; max-height:100%; object-fit:contain; box-shadow:0 8px 36px rgba(0,0,0,.4); }
+.gallery-lightbox button { position:absolute; border:0; background:rgba(255,255,255,.13); color:white; border-radius:50%; width:38px; height:38px; font-size:25px; cursor:pointer; }
+.lightbox-close { top:15px; right:15px; background:none!important; }
+.lightbox-prev { left:9px; top:50%; transform:translateY(-50%); }
+.lightbox-next { right:9px; top:50%; transform:translateY(-50%); }
+.lightbox-count { position:absolute; bottom:17px; color:#f2e8dc; font:12px var(--serif); letter-spacing:.15em; }
+.hidden-frame { position:absolute; width:1px; height:1px; border:0; left:-9999px; }
+
+@media (max-width:380px) {
+  .invitation-app { padding-left:9px; padding-right:9px; }
+  .book-stage { width:min(94vw, 460px, calc((100dvh - 160px) * .585)); max-height:calc(100dvh - 160px); }
+  .paper-page { padding-left:14px; padding-right:14px; }
+  .rsvp-form { gap:6px; }
+  .choice span { font-size:9px; min-height:30px; }
+  .venue-photo-wrap { height:20%; }
+  .directions-details { margin-top:9px; }
+}
+@media (orientation:landscape) and (max-height:560px) {
+  .invitation-app { padding-top:5px; padding-bottom:4px; }
+  .topbar, .footer-note { display:none; }
+  .viewer { gap:4px; }
+  .book-stage { height:80dvh; width:calc(80dvh * .585); max-width:88vw; }
+  .page-controls { width:min(75vw,420px); }
+  .swipe-hint { display:none; }
+}
+@media (prefers-reduced-motion:reduce) {
+  *, *::before, *::after { scroll-behavior:auto!important; animation-duration:.01ms!important; transition-duration:.01ms!important; }
+}
+
+.venue-photo-placeholder {
+  width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.72),rgba(237,224,207,.72)),
+    repeating-linear-gradient(135deg,rgba(165,132,97,.06) 0 1px,transparent 1px 8px);
+  color:#92785b; border:1px solid rgba(171,141,107,.19);
+}
+.building-icon { font:48px/1 var(--serif); color:#ad8d68; }
+.venue-placeholder-title { margin-top:7px; font:500 10px var(--serif); letter-spacing:.2em; }
+.venue-placeholder-text { margin-top:6px; text-align:center; font-size:10px; line-height:1.7; color:#9a8874; }
+
+
+/* Refined StPageFlip finish */
+.stf__parent { margin:0 auto; }
+.stf__block { border-radius:5px 12px 12px 5px; }
+.stf__item { overflow:hidden; }
+.book .page .paper-page { width:100%; height:100%; border-radius:5px 12px 12px 5px; }
+.book .page .paper-page::after { pointer-events:none; }
+.book input, .book select, .book textarea, .book label, .book button, .book a { touch-action:manipulation; }
+.book .rsvp-page { -webkit-user-select:auto; user-select:auto; }
+@media (max-width:380px) {
+  .book-stage { width:min(94vw, calc((100dvh - 160px) * .585)); }
+  .page-controls { width:min(94vw,460px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stf__parent, .stf__item { transition:none !important; }
+}
+
+/* Offline-safe leaf-curl fallback. It is visible immediately while the optional
+   full page-curl engine downloads, and remains fully navigable without a CDN. */
+.book.is-fallback {
+  perspective: 1800px;
+  transform-style: preserve-3d;
+  overflow: visible;
+}
+.book.is-fallback .page {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  overflow: visible;
+  border: 0;
+  border-radius: 5px 12px 12px 5px;
+  background: transparent;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+  backface-visibility: visible;
+}
+.book.is-fallback .page.is-current,
+.book.is-fallback .page.is-under,
+.book.is-fallback .page.is-turning-next,
+.book.is-fallback .page.is-turning-prev { display: block; }
+.book.is-fallback .page.is-under { z-index: 1; }
+.book.is-fallback .page.is-current { z-index: 2; }
+.book.is-fallback .page.is-turning-next,
+.book.is-fallback .page.is-turning-prev { z-index: 3; }
+.book.is-fallback .page-content {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 5px 12px 12px 5px;
+  backface-visibility: hidden;
+  transform: translateZ(1px);
+}
+.book.is-fallback .page-backface {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(169,137,103,.28);
+  border-radius: 5px 12px 12px 5px;
+  background:
+    radial-gradient(ellipse at 10% 10%, rgba(248,238,222,.64), transparent 38%),
+    repeating-linear-gradient(0deg, rgba(145,111,79,.018) 0 1px, transparent 1px 4px),
+    linear-gradient(145deg,#f2e6d6,#e8d8c5);
+  box-shadow: inset 0 0 22px rgba(181,147,111,.10), inset 0 0 0 8px rgba(255,255,255,.13);
+  transform: rotateY(180deg) translateZ(1px);
+  backface-visibility: hidden;
+  pointer-events: none;
+}
+ .book.is-fallback .page.is-turning-next {
+  transform-origin: left center;
+  animation: invitation-leaf-next 1480ms cubic-bezier(.38,.02,.16,1) forwards;
+}
+.book.is-fallback .page.is-turning-prev {
+  transform-origin: right center;
+  animation: invitation-leaf-prev 1480ms cubic-bezier(.38,.02,.16,1) forwards;
+}
+.book.is-fallback .page.is-turning-next::after,
+.book.is-fallback .page.is-turning-prev::after {
+  content:""; position:absolute; inset:0; z-index:8; pointer-events:none;
+  border-radius:inherit; opacity:0; backface-visibility:hidden;
+}
+.book.is-fallback .page.is-turning-next::after {
+  background:linear-gradient(90deg,rgba(76,55,35,0) 38%,rgba(73,52,34,.09) 67%,rgba(49,34,22,.30) 100%),linear-gradient(112deg,transparent 38%,rgba(255,250,240,.5) 49%,rgba(255,250,240,.08) 58%,transparent 68%);
+  animation: curl-shade-next 1480ms ease-in-out forwards;
+}
+.book.is-fallback .page.is-turning-prev::after {
+  background:linear-gradient(270deg,rgba(76,55,35,0) 38%,rgba(73,52,34,.09) 67%,rgba(49,34,22,.30) 100%),linear-gradient(248deg,transparent 38%,rgba(255,250,240,.5) 49%,rgba(255,250,240,.08) 58%,transparent 68%);
+  animation: curl-shade-prev 1480ms ease-in-out forwards;
+}
+@keyframes invitation-leaf-next {
+  0% { transform:perspective(1800px) rotateY(0deg) rotateX(0deg) rotateZ(0deg) translateZ(0) scaleX(1); border-radius:6px 16px 16px 6px; filter:drop-shadow(0 2px 3px rgba(72,53,35,.06)); }
+  18% { transform:perspective(1800px) rotateY(-17deg) rotateX(2deg) rotateZ(-.35deg) translate3d(0,-2px,22px) scaleX(.994); border-radius:8px 26px 23px 8px; filter:drop-shadow(-6px 6px 9px rgba(72,53,35,.13)); }
+  43% { transform:perspective(1800px) rotateY(-72deg) rotateX(4deg) rotateZ(-1deg) translate3d(0,-4px,45px) scaleX(.952); border-radius:12px 34px 28px 12px; filter:drop-shadow(-13px 8px 15px rgba(72,53,35,.20)); }
+  68% { transform:perspective(1800px) rotateY(-136deg) rotateX(2deg) rotateZ(-.5deg) translate3d(0,-2px,31px) scaleX(.972); border-radius:10px 27px 24px 10px; filter:drop-shadow(-8px 5px 11px rgba(72,53,35,.14)); }
+  88% { transform:perspective(1800px) rotateY(-169deg) rotateX(.5deg) rotateZ(0deg) translateZ(8px) scaleX(.995); border-radius:7px 19px 18px 7px; filter:drop-shadow(-2px 2px 4px rgba(72,53,35,.07)); }
+  100% { transform:perspective(1800px) rotateY(-180deg) rotateX(0deg) rotateZ(0deg) translateZ(0) scaleX(1); border-radius:6px 16px 16px 6px; filter:none; }
+}
+@keyframes invitation-leaf-prev {
+  0% { transform:perspective(1800px) rotateY(0deg) rotateX(0deg) rotateZ(0deg) translateZ(0) scaleX(1); border-radius:16px 6px 6px 16px; filter:drop-shadow(0 2px 3px rgba(72,53,35,.06)); }
+  18% { transform:perspective(1800px) rotateY(17deg) rotateX(2deg) rotateZ(.35deg) translate3d(0,-2px,22px) scaleX(.994); border-radius:26px 8px 8px 23px; filter:drop-shadow(6px 6px 9px rgba(72,53,35,.13)); }
+  43% { transform:perspective(1800px) rotateY(72deg) rotateX(4deg) rotateZ(1deg) translate3d(0,-4px,45px) scaleX(.952); border-radius:34px 12px 12px 28px; filter:drop-shadow(13px 8px 15px rgba(72,53,35,.20)); }
+  68% { transform:perspective(1800px) rotateY(136deg) rotateX(2deg) rotateZ(.5deg) translate3d(0,-2px,31px) scaleX(.972); border-radius:27px 10px 10px 24px; filter:drop-shadow(8px 5px 11px rgba(72,53,35,.14)); }
+  88% { transform:perspective(1800px) rotateY(169deg) rotateX(.5deg) rotateZ(0deg) translateZ(8px) scaleX(.995); border-radius:19px 7px 7px 18px; filter:drop-shadow(2px 2px 4px rgba(72,53,35,.07)); }
+  100% { transform:perspective(1800px) rotateY(180deg) rotateX(0deg) rotateZ(0deg) translateZ(0) scaleX(1); border-radius:16px 6px 6px 16px; filter:none; }
+}
+@keyframes curl-shade-next { 0%{opacity:0} 18%{opacity:.34} 43%{opacity:.92} 70%{opacity:.5} 100%{opacity:0} }
+@keyframes curl-shade-prev { 0%{opacity:0} 18%{opacity:.34} 43%{opacity:.92} 70%{opacity:.5} 100%{opacity:0} }
+.book.is-engine-loading { visibility: hidden; }
+@media (prefers-reduced-motion: reduce) {
+  .book.is-fallback .page.is-turning-next,
+  .book.is-fallback .page.is-turning-prev { animation-duration: .01ms; }
+}
+
+
+/* Friendly explanation when someone opens the HTML directly via file://. */
+.file-protocol-notice {
+  position: fixed; inset: 0; z-index: 100; display: grid; place-items: center;
+  padding: 24px; background: rgba(56,43,31,.36); backdrop-filter: blur(8px);
+}
+.file-protocol-notice[hidden] { display: none; }
+.file-protocol-notice__card {
+  width: min(100%, 420px); padding: 30px 26px; border: 1px solid rgba(169,137,103,.4);
+  border-radius: 12px; background: linear-gradient(145deg,#fbf6ef,#f0e3d4);
+  box-shadow: 0 18px 60px rgba(50,36,24,.22); text-align: center; line-height: 1.85;
+}
+.file-protocol-notice__eyebrow { margin: 0 0 8px; color: #9a8061; letter-spacing: .2em; font: 11px var(--serif); }
+.file-protocol-notice__card h2 { margin: 0 0 12px; font: 500 23px var(--korean); }
+.file-protocol-notice__card p { color: #796854; font-size: 13px; }
+
+
+
+/* V4 personalisation: warm cream paper, handwritten Korean, and a soft curled leaf */
+:root {
+  --paper:#f0e4d4;
+  --paper-deep:#e8d8c5;
+  --ink:#58483a;
+  --muted:#927d68;
+  --gold:#aa8965;
+  --gold-soft:#d2b896;
+  --line:rgba(151,119,85,.34);
+  --serif:'Cormorant Garamond','Cormorant Garamond',Georgia,serif;
+  --korean:'Noto Serif KR','Noto Serif KR','Batang',sans-serif;
+}
+body { font-family:var(--korean); font-weight:300; color:#594a3b; background:radial-gradient(ellipse at 15% 10%,rgba(242,228,208,.55),transparent 40%),radial-gradient(ellipse at 86% 88%,rgba(197,166,130,.20),transparent 42%),linear-gradient(135deg,#eadccb 0%,#e2d1bd 48%,#f1e6d8 100%); }
+.paper-page:not(.invitation-page) { background-color:#f0e4d4; background-image:radial-gradient(ellipse at 14% 8%,rgba(248,238,222,.66),transparent 34%),radial-gradient(ellipse at 90% 93%,rgba(205,177,144,.24),transparent 35%),repeating-linear-gradient(0deg,rgba(145,111,79,.022) 0px,rgba(145,111,79,.022) 1px,transparent 1px,transparent 4px),linear-gradient(145deg,#f3e8d9,#e9d9c7 100%); }
+.cover-page { background:#e6d6c2; }
+.cover-photo { filter:sepia(.12) saturate(.88) brightness(.94); }
+.cover-wash { background:linear-gradient(180deg,rgba(225,207,183,.72) 0%,rgba(235,221,202,.22) 29%,rgba(236,222,203,.18) 62%,rgba(224,204,179,.88) 100%),linear-gradient(rgba(226,208,185,.12),rgba(226,208,185,.12)); }
+.cover-frame,.thankyou-frame { border-color:rgba(231,216,194,.86); }
+.cover-script,.thankyou-script { font-family:'Cormorant Garamond',cursive !important; font-style:normal; font-weight:400; }
+.cover-tagline,.cover-date,.cover-venue,.cover-flight,.topbar,.topbar__brand,.topbar__edition,.page-eyebrow,.page-number,.airmail-stamp,.date-main,.date-time,.calendar-month,.calendar-grid,.small-caps,.travel-quote,.final-stamp,.stamp-photo figcaption,.footer-note { font-family:'Cormorant Garamond',var(--serif),cursive; }
+.paper-page,.invitation-copy,.parent-lines,.invitation-signoff,.page-subtitle,.calendar-note,.travel-intro,.venue-name,.venue-address,.directions-details,.contact-grid,.bank-info,.rsvp-title,.rsvp-lead,.form-label,.choice span,.rsvp-input,.rsvp-select,.rsvp-textarea,.thankyou-message,.thankyou-sign { font-family:var(--korean); font-weight:300; }
+strong,b,.parent-lines strong,.venue-name,.form-label,.rsvp-title,.cover-names,.thankyou-sign { font-weight:700; }
+.cover-names { font-family:var(--korean); }
+.page-backface { background:radial-gradient(ellipse at 10% 10%,rgba(247,236,218,.7),transparent 38%),repeating-linear-gradient(0deg,rgba(145,111,79,.022) 0 1px,transparent 1px 4px),linear-gradient(145deg,#f1e5d5,#e7d6c2); }
+.date-card,.map-button,.more-button { background:rgba(239,225,206,.42); }
+.stamp-photo,.venue-photo-wrap { background:#f7eee1; border-color:#dfcbb2; }
+.gallery-modal__panel { background:linear-gradient(145deg,#f4e8d8,#e9d9c6); }
+.file-protocol-notice__card { background:linear-gradient(145deg,#f4e8d8,#e9d9c6); }
+.book.is-fallback .page { border-radius:7px 18px 18px 7px; }
+.book.is-fallback .page-content,.book.is-fallback .page-backface { border-radius:7px 18px 18px 7px; }
+.book.is-fallback .page-backface { box-shadow:inset 13px 0 18px rgba(117,86,55,.09),inset 0 0 24px rgba(181,147,111,.12),inset 0 0 0 8px rgba(255,255,255,.11); }
+@media (prefers-reduced-motion:reduce) {
+  .book.is-fallback .page.is-turning-next,.book.is-fallback .page.is-turning-prev { animation-duration:.01ms; }
+  .book.is-fallback .page.is-turning-next::after,.book.is-fallback .page.is-turning-prev::after { animation-duration:.01ms; }
+}
+
+
+
+/* V5: continuous, compositor-friendly paper turn and page index navigation */
+.book.is-fallback .page {
+  transform: perspective(2200px) rotateY(0deg) translateZ(0);
+  transform-style: preserve-3d;
+  transition: none;
+  will-change: transform;
+  backface-visibility: visible;
+  box-shadow: 0 8px 18px rgba(75,54,35,.12);
+}
+.book.is-fallback .page.is-turning-next,
+.book.is-fallback .page.is-turning-prev {
+  animation: none !important;
+  transition: transform 880ms cubic-bezier(.42,0,.58,1);
+  transform-style: preserve-3d;
+}
+.book.is-fallback .page.is-turning-next {
+  transform-origin: left center;
+  transform: perspective(2200px) rotateY(-180deg) rotateX(1deg) translateZ(14px) scaleX(.985);
+}
+.book.is-fallback .page.is-turning-prev {
+  transform-origin: right center;
+  transform: perspective(2200px) rotateY(180deg) rotateX(1deg) translateZ(14px) scaleX(.985);
+}
+.book.is-fallback .page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 420ms ease-out;
+  backface-visibility: hidden;
+}
+.book.is-fallback .page.is-turning-next::after,
+.book.is-fallback .page.is-turning-prev::after {
+  opacity: .78;
+}
+.book.is-fallback .page.is-turning-next::after {
+  background: linear-gradient(90deg, transparent 34%, rgba(76,55,35,.05) 67%, rgba(49,34,22,.24) 100%),
+              linear-gradient(112deg, transparent 40%, rgba(255,250,240,.58) 50%, rgba(255,250,240,.06) 61%, transparent 70%);
+}
+.book.is-fallback .page.is-turning-prev::after {
+  background: linear-gradient(270deg, transparent 34%, rgba(76,55,35,.05) 67%, rgba(49,34,22,.24) 100%),
+              linear-gradient(248deg, transparent 40%, rgba(255,250,240,.58) 50%, rgba(255,250,240,.06) 61%, transparent 70%);
+}
+.page-jump-nav {
+  width: min(92vw, 460px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(9px, 3.1vw, 17px);
+  min-height: 28px;
+  margin-top: -2px;
+}
+.page-jump-button {
+  appearance: none;
+  border: 1px solid rgba(158,129,99,.36);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(255,251,245,.28);
+  color: #8b765f;
+  font: 11px/1 var(--serif);
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+.page-jump-button:hover { border-color: #ad8d68; transform: translateY(-1px); }
+.page-jump-button.is-active {
+  color: #fffaf3;
+  background: #a98a68;
+  border-color: #a98a68;
+  box-shadow: 0 2px 7px rgba(110,82,53,.18);
+}
+.page-jump-button:disabled { opacity: .45; cursor: wait; }
+.page-jump-button:focus-visible { outline: 2px solid #a98a68; outline-offset: 3px; }
+.swipe-hint { min-height: 14px; transition: opacity 180ms ease; }
+.invitation-page {
+  background-size: cover !important;
+  background-position: center 44% !important;
+  background-repeat: no-repeat !important;
+}
+@media (max-height: 700px) {
+  .page-jump-nav { gap: 8px; min-height: 24px; }
+  .page-jump-button { width: 22px; height: 22px; }
+  .swipe-hint { font-size: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .book.is-fallback .page.is-turning-next,
+  .book.is-fallback .page.is-turning-prev { transition-duration: .01ms; }
+  .book.is-fallback .page.is-turning-next::after,
+  .book.is-fallback .page.is-turning-prev::after { transition-duration: .01ms; }
+}
+
+
+
+/* V6 refinement: editorial wedding typography and balanced page composition */
+:root {
+  --serif: 'Cormorant Garamond', 'Noto Serif KR', Georgia, serif;
+  --korean: 'Noto Serif KR', 'Batang', serif;
+}
+body, button, input, select, textarea {
+  font-family: var(--korean);
+}
+.cover-script, .thankyou-script {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -.025em;
+}
+.cover-tagline, .cover-date, .topbar, .page-eyebrow, .small-caps,
+.page-number, .travel-quote, .footer-note, .airmail-stamp,
+.date-main, .date-time, .dday, .calendar-grid, .calendar-month {
+  font-family: 'Cormorant Garamond', 'Noto Serif KR', Georgia, serif;
+}
+.cover-venue, .cover-flight, .topbar__brand, .topbar__edition, .final-stamp,
+.stamp-photo figcaption, .modal-caption, .gallery-modal__panel .eyebrow,
+.gallery-modal__panel h2, .lightbox-count {
+  font-family: 'Cormorant Garamond', 'Noto Serif KR', Georgia, serif !important;
+}
+.paper-page {
+  background-color: #f0e5d6;
+}
+.page-inner {
+  justify-content: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.invitation-page .page-inner {
+  justify-content: center;
+  padding: 14px 3px 12px;
+}
+.invitation-copy {
+  margin: 14px 0 0;
+  line-height: 1.95;
+}
+.parent-lines {
+  margin-top: 22px;
+  padding-bottom: 0;
+}
+.invitation-signoff {
+  margin: 17px 0 0;
+}
+.date-card {
+  margin: 13px 0 10px;
+}
+.calendar-note {
+  margin: 12px 0 0;
+}
+.travel-page .page-inner {
+  justify-content: center;
+  gap: 5px;
+  padding: 8px 0 10px;
+}
+.travel-intro {
+  margin: 2px 0 6px;
+}
+.postcard-layout {
+  flex: 0 1 auto;
+  width: 100%;
+  height: 48%;
+  min-height: 210px;
+  margin: 3px 0 0;
+}
+.travel-quote {
+  margin: 7px 0 0;
+}
+.more-button {
+  margin-top: 5px;
+}
+.stamp-photo--preview {
+  outline: 1px dashed rgba(171,139,103,.6);
+  outline-offset: 2px;
+}
+.photo-preview-label {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  right: 10px;
+  padding: 4px 7px;
+  color: #fffaf3;
+  background: rgba(106,83,61,.62);
+  font: 9px 'Cormorant Garamond', serif;
+  letter-spacing: .13em;
+}
+.gallery-grid {
+  grid-template-columns: repeat(3, minmax(0,1fr));
+}
+.direction-page .page-inner {
+  justify-content: center;
+  padding: 5px 0 8px;
+  gap: 2px;
+}
+.venue-photo-wrap {
+  height: 18%;
+  min-height: 82px;
+  margin: 7px 0 9px;
+}
+.directions-details {
+  margin-top: 8px;
+  padding-top: 7px;
+  font-size: 9.5px;
+  line-height: 1.62;
+}
+.contact-grid {
+  margin-top: 5px;
+  line-height: 1.65;
+}
+.rsvp-page .page-inner {
+  justify-content: center;
+  padding: 3px 0 8px;
+}
+.rsvp-form {
+  margin-top: 8px;
+}
+.thankyou-content {
+  justify-content: center;
+  padding: 13% 15px 10%;
+}
+/* The numeric 1–6 rail is the sole navigation row under the paper. */
+.page-controls, .swipe-hint {
+  display: none !important;
+}
+.page-jump-nav {
+  margin-top: 0;
+  min-height: 30px;
+  padding: 2px 0;
+}
+.book-stage {
+  width: min(92vw, 460px, calc((100dvh - 128px) * .585));
+  max-height: calc(100dvh - 128px);
+}
+@media (max-width: 380px) {
+  .book-stage {
+    width: min(94vw, 460px, calc((100dvh - 120px) * .585));
+    max-height: calc(100dvh - 120px);
+  }
+  .postcard-layout { min-height: 190px; }
+  .gallery-grid { gap: 8px; }
+}
+@media (max-height: 700px) {
+  .book-stage {
+    width: min(92vw, 460px, calc((100dvh - 112px) * .585));
+    max-height: calc(100dvh - 112px);
+  }
+  .page-inner { padding-top: 3px; padding-bottom: 3px; }
+  .invitation-copy { margin-top: 8px; line-height: 1.78; }
+  .parent-lines { margin-top: 12px; }
+  .invitation-signoff { margin-top: 10px; }
+}
+
+
+
+/* V7 layout adjustment: keep page section labels in the upper header zone,
+   while the invitation body remains optically centered below them. */
+.page-inner {
+  position: relative;
+}
+.page-inner > .page-eyebrow:first-child {
+  position: absolute;
+  top: clamp(16px, 4.6%, 27px);
+  left: 18px;
+  right: 18px;
+  z-index: 4;
+  margin: 0 !important;
+  padding: 0;
+  text-align: center;
+  line-height: 1.25;
+  transform: none;
+}
+/* Keep the centered content visually clear of the top label. */
+.page-inner > .page-eyebrow:first-child + .ornament {
+  margin-top: 0;
+}
+@media (max-height: 700px) {
+  .page-inner > .page-eyebrow:first-child {
+    top: 13px;
+  }
+}
+
+
+
+/* V9: selective refinements requested on the V7 design */
+/* Page 1: deepen the tagline so it reads clearly over the softened photograph. */
+.cover-tagline {
+  color: #49382b !important;
+  font-weight: 600 !important;
+  text-shadow: 0 1px 2px rgba(248,239,225,.95), 0 0 8px rgba(248,239,225,.75) !important;
+}
+
+/* Page 2: richer ink tone across all invitation copy. */
+.invitation-page .page-eyebrow,
+.invitation-page .invitation-copy,
+.invitation-page .parent-lines,
+.invitation-page .parent-lines strong,
+.invitation-page .invitation-signoff {
+  color: #46372c !important;
+}
+.invitation-page .parent-lines span { color: #715a45 !important; }
+.invitation-page .invitation-copy { font-weight: 500; text-shadow: 0 1px 0 rgba(255,250,243,.45); }
+
+/* Page 3: framed calendar with quiet botanical corner flourishes. */
+.calendar-shell {
+  position: relative;
+  width: 100%;
+  margin: 11px 0 5px;
+  padding: 19px 15px 15px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(255,251,244,.36), rgba(235,222,204,.18));
+  box-shadow: inset 0 0 18px rgba(167,133,96,.055);
+}
+.calendar-floral-frame { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+.calendar-shell .calendar { position:relative; z-index:1; width:100%; margin:0; }
+.calendar-shell .calendar-month { color:#705a45; margin-bottom:7px; }
+.calendar-shell .calendar-grid .weekday { color:#92785c; }
+.calendar-shell .calendar-grid { color:#574638; }
+.calendar-shell .calendar-grid .event-day { background:#a98762; box-shadow:0 0 0 3px rgba(169,135,98,.16), 0 2px 5px rgba(88,65,44,.16); }
+
+/* Page 4: keep the intro in its own line; center postcards underneath; keep the gallery button on its own baseline. */
+.travel-page .page-inner {
+  display:grid;
+  grid-template-columns: minmax(0,1fr);
+  grid-template-rows: auto minmax(0,1fr) auto auto;
+  align-content:stretch;
+  justify-items:center;
+  gap:0;
+  padding:42px 0 12px;
+}
+.travel-page .page-inner > .page-eyebrow:first-child { top: clamp(16px,4.6%,27px); }
+.travel-intro {
+  grid-row:1;
+  align-self:center;
+  justify-self:stretch;
+  width:100%;
+  min-height:30px;
+  margin:0 0 7px !important;
+  padding:0 4px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#67513f;
+  font-size:clamp(10px,2.6vw,12px);
+  line-height:1.55;
+  white-space:normal;
+  word-break:keep-all;
+  position:relative;
+  z-index:2;
+}
+.postcard-layout {
+  grid-row:2;
+  align-self:center;
+  justify-self:center;
+  width:100%;
+  height:100%;
+  max-height:100%;
+  min-height:0;
+  margin:0;
+  padding:4px 3px;
+  grid-template-rows:1fr .88fr;
+  gap:9px 9px;
+}
+.stamp-photo { min-height:0; }
+.travel-quote { grid-row:3; margin:5px 0 3px !important; line-height:1.05; }
+.more-button { grid-row:4; justify-self:center; align-self:end; margin:0 0 2px !important; min-height:31px; padding:7px 21px; line-height:1.2; white-space:nowrap; }
+@media (max-height:700px) {
+  .travel-page .page-inner { padding-top:37px; padding-bottom:10px; }
+  .travel-intro { margin-bottom:3px !important; min-height:25px; }
+  .postcard-layout { grid-template-rows:1fr .78fr; gap:7px; }
+  .travel-quote { margin:3px 0 2px !important; }
+}
+
+/* Page 5: family contacts and gift accounts are explicitly separated by person. */
+.direction-page .page-inner { gap:1px; padding-top:39px; padding-bottom:17px; }
+.direction-page .venue-photo-wrap { height:14%; min-height:66px; max-height:82px; margin:5px 0 6px; }
+.direction-page .venue-name { font-size:15px; line-height:1.2; }
+.direction-page .venue-address { margin:3px 0 5px; font-size:9px; line-height:1.45; }
+.direction-page .map-button { padding:6px 17px; font-size:9px; }
+.direction-page .directions-details {
+  width:100%; margin-top:6px; padding-top:5px; font-size:8.4px; line-height:1.42;
+}
+.direction-page .directions-details > p { margin:2px 0; }
+.direction-page .contact-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:2px 9px;
+  margin-top:4px;
+  line-height:1.35;
+}
+.direction-page .contact-item { display:flex; justify-content:space-between; align-items:baseline; gap:4px; min-width:0; margin:0; white-space:nowrap; }
+.direction-page .contact-item strong { color:#70583f; font-size:8px; font-weight:600; }
+.direction-page .contact-item span { color:#5e4b3b; font-size:7.8px; letter-spacing:-.02em; }
+.direction-page .bank-info { margin-top:5px; padding-top:4px; }
+.direction-page .bank-info .small-caps { font-size:8.5px; margin-bottom:3px; }
+.direction-page .bank-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:3px 9px; }
+.direction-page .bank-row { min-width:0; display:grid; grid-template-columns:auto minmax(0,1fr); gap:1px 4px; align-items:baseline; padding:2px 0; border-bottom:1px solid rgba(170,140,107,.22); }
+.direction-page .bank-row strong { color:#70583f; font-size:7.8px; font-weight:600; white-space:nowrap; }
+.direction-page .bank-row span { color:#65503e; font-size:7.3px; min-width:0; overflow-wrap:anywhere; }
+.direction-page .bank-row small { grid-column:2; color:#9a8671; font-size:7px; text-align:right; }
+@media (max-width:380px) {
+  .direction-page .page-inner { padding-top:36px; }
+  .direction-page .directions-details { font-size:8px; }
+  .direction-page .contact-grid { gap:2px 6px; }
+  .direction-page .contact-item span { font-size:7.2px; }
+  .direction-page .bank-grid { gap:2px 6px; }
+}
+
+/* V9.1 final refinements: clear venue placeholder and keep faces unobstructed. */
+.venue-photo-wrap { height:11% !important; min-height:62px !important; max-height:72px !important; margin:4px 0 6px !important; }
+.venue-photo-placeholder { gap:0; }
+.venue-photo-placeholder .building-icon { font-size:30px; line-height:.95; }
+.venue-photo-placeholder .venue-placeholder-title { margin-top:2px; font-size:8.5px; letter-spacing:.18em; }
+.venue-photo-placeholder .venue-placeholder-text { margin-top:2px; font-size:7.5px; line-height:1.2; color:#9a8166; }
+.direction-page .directions-details { margin-top:5px; padding-top:4px; }
+.direction-page .contact-grid { margin-top:3px; }
+.direction-page .bank-info { margin-top:4px; padding-top:3px; }
+.direction-page .bank-grid { gap:2px 8px; }
+.direction-page .bank-row { padding:1px 0; }
+.direction-page .bank-row span { font-size:7.1px; }
+.direction-page .bank-row small { font-size:6.8px; }
+
+
+
+/* V10 refinements: make the final calendar row and contact/account details clearer. */
+.calendar-shell {
+  margin-top: 8px !important;
+  padding: 18px 20px 24px !important;
+  min-height: 250px;
+  box-sizing: border-box;
+}
+.calendar-shell .calendar-grid > span {
+  min-height: 30px;
+}
+.calendar-shell .calendar-grid .weekday {
+  min-height: 23px;
+}
+.calendar-shell .calendar-grid .event-day {
+  width: 30px;
+  height: 30px;
+  min-height: 30px;
+}
+.calendar-shell .calendar-grid .month-end-slot {
+  position: relative;
+  z-index: 2;
+}
+.calendar-shell .calendar-grid .month-end-day {
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  width: 34px;
+  height: 32px;
+  min-height: 32px;
+  border: 1px solid rgba(151, 116, 78, .66);
+  border-radius: 6px;
+  color: #594532;
+  background: rgba(255, 250, 241, .96);
+  box-shadow: 0 1px 4px rgba(95, 68, 41, .12), inset 0 0 0 2px rgba(255,255,255,.48);
+  font-weight: 600;
+}
+
+/* Page 5: one consistent, readable row system for all five family members. */
+.direction-page .page-inner {
+  justify-content: flex-start;
+  gap: 0;
+  padding-top: 38px;
+  padding-bottom: 21px;
+}
+.direction-page .venue-photo-wrap {
+  height: 10%;
+  min-height: 58px;
+  max-height: 68px;
+  margin: 4px 0 6px;
+}
+.direction-page .venue-name {
+  font-size: 15px;
+  line-height: 1.35;
+  letter-spacing: .045em;
+  color: #49392d;
+}
+.direction-page .venue-address {
+  margin: 4px 0 6px;
+  max-width: 100%;
+  font-size: 9.4px;
+  line-height: 1.55;
+  letter-spacing: .025em;
+  word-break: keep-all;
+  color: #5f4b39;
+}
+.direction-page .map-button {
+  padding: 6px 19px;
+  font-size: 9.5px;
+  letter-spacing: .08em;
+}
+.direction-page .directions-details {
+  width: 100%;
+  margin-top: 7px;
+  padding-top: 6px;
+  font-size: 9px;
+  line-height: 1.55;
+  letter-spacing: .025em;
+  color: #4f4032;
+}
+.direction-page .directions-details > p {
+  margin: 3px 0;
+  line-height: 1.55;
+  letter-spacing: .02em;
+}
+.direction-page .directions-details > p strong {
+  display: inline-block;
+  min-width: 58px;
+  color: #795e43;
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+.direction-page .directions-details .ornament {
+  margin: 7px auto 6px;
+}
+.direction-page .directions-details > .small-caps,
+.direction-page .bank-info > .small-caps {
+  margin: 0 0 4px;
+  font-size: 9px;
+  letter-spacing: .22em;
+  color: #795e43;
+}
+.direction-page .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  margin-top: 3px;
+  line-height: 1.45;
+}
+.direction-page .contact-item {
+  display: grid;
+  grid-template-columns: 92px minmax(0,1fr);
+  align-items: center;
+  gap: 8px;
+  min-height: 20px;
+  padding: 2px 7px;
+  border-bottom: 1px solid rgba(170,140,107,.20);
+  white-space: nowrap;
+}
+.direction-page .contact-item strong {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .09em;
+  color: #70553c;
+}
+.direction-page .contact-item span {
+  font-size: 9px;
+  letter-spacing: .075em;
+  color: #493a2e;
+  text-align: left;
+}
+.direction-page .bank-info {
+  margin-top: 6px;
+  padding-top: 5px;
+}
+.direction-page .bank-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+.direction-page .bank-row {
+  display: grid;
+  grid-template-columns: 92px minmax(0,1fr) 43px;
+  align-items: center;
+  gap: 7px;
+  min-height: 22px;
+  padding: 2px 7px;
+  border-bottom: 1px solid rgba(170,140,107,.22);
+}
+.direction-page .bank-row strong {
+  font-size: 8.8px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  color: #70553c;
+  white-space: nowrap;
+}
+.direction-page .bank-row span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 8.5px;
+  letter-spacing: .045em;
+  color: #493a2e;
+}
+.direction-page .bank-row small {
+  font-size: 7.8px;
+  letter-spacing: .04em;
+  color: #806b56;
+  text-align: right;
+  white-space: nowrap;
+}
+@media (max-width: 380px) {
+  .direction-page .page-inner { padding-top: 35px; padding-bottom: 20px; }
+  .direction-page .directions-details { font-size: 8.6px; }
+  .direction-page .contact-item,
+  .direction-page .bank-row { grid-template-columns: 84px minmax(0,1fr) 39px; }
+  .direction-page .contact-item { grid-template-columns: 84px minmax(0,1fr); }
+  .direction-page .contact-item strong,
+  .direction-page .contact-item span { font-size: 8.5px; }
+  .direction-page .bank-row strong { font-size: 8.2px; }
+  .direction-page .bank-row span { font-size: 7.9px; }
+}
+
+
+
+/* V11 refinements requested by the couple. */
+/* Page 2: keep the invitation heading at the top, but anchor the letter copy and family/sign-off block lower. */
+.invitation-page .invitation-copy {
+  margin: auto 0 0 !important;
+  padding-top: 12px;
+  font-size: clamp(13px, 3.45vw, 16px);
+  line-height: 2.05;
+}
+.invitation-page .parent-lines {
+  margin-top: clamp(15px, 2.5vh, 23px) !important;
+  padding-bottom: 0 !important;
+  flex: 0 0 auto;
+}
+.invitation-page .invitation-signoff { margin: 12px 0 4px !important; }
+
+/* Page 3: restore the V9 botanical calendar feeling, extend the lower edge, and align every date in equal cells. */
+.calendar-shell--extended {
+  flex: 0 0 auto;
+  margin: 11px 0 5px;
+  padding: 17px 15px 31px;
+  min-height: 252px;
+  overflow: visible;
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(255,251,244,.36), rgba(235,222,204,.18));
+  box-shadow: inset 0 0 18px rgba(167,133,96,.055);
+}
+.calendar-shell--extended .calendar { position:relative; z-index:1; width:100%; margin:0; }
+.calendar-shell--extended .calendar-month { margin-bottom:8px; color:#705a45; }
+.calendar-shell--extended .calendar-grid {
+  display:grid;
+  grid-template-columns:repeat(7,minmax(0,1fr));
+  grid-auto-rows:32px;
+  gap:4px 0;
+  color:#574638;
+  font:12px var(--serif);
+}
+.calendar-shell--extended .calendar-grid > span {
+  min-width:0;
+  min-height:32px;
+  display:grid;
+  place-items:center;
+  line-height:1;
+  font-variant-numeric:tabular-nums;
+}
+.calendar-shell--extended .calendar-grid > .weekday {
+  min-height:22px;
+  height:22px;
+  color:#92785c;
+  font:500 10px var(--serif);
+}
+.calendar-shell--extended .calendar-grid .event-day {
+  position:relative;
+  display:grid;
+  place-items:center;
+  width:30px;
+  height:30px;
+  min-height:30px;
+  margin:0;
+  padding:0;
+  background:transparent;
+  border-radius:0;
+  color:#fffaf2;
+  box-shadow:none;
+  font:600 10px var(--serif);
+}
+.calendar-shell--extended .calendar-grid .event-day svg {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  overflow:visible;
+  filter:drop-shadow(0 1px 2px rgba(91,65,41,.23));
+}
+.calendar-shell--extended .calendar-grid .event-day svg path {
+  fill:#a98762;
+  stroke:#8e704e;
+  stroke-width:1;
+}
+.calendar-shell--extended .calendar-grid .event-day span {
+  position:relative;
+  z-index:1;
+  display:block;
+  line-height:1;
+  color:#fffaf2;
+  transform:translateY(-1px);
+}
+.calendar-shell--extended .calendar-floral-frame { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+.calendar-note { margin:auto 0 10px; }
+
+/* Page 5: balanced two-column family layout and a real hall photograph. */
+.direction-page .page-inner { gap:0; padding-top:39px; padding-bottom:20px; }
+.direction-page .venue-photo-wrap {
+  width:100%; height:14%; min-height:76px; max-height:90px;
+  margin:5px 0 7px; padding:5px;
+  background:#fffdf8; border:1px solid #e4d4c1;
+  transform:rotate(-1.2deg);
+  box-shadow:0 4px 11px rgba(84,64,45,.14);
+  overflow:hidden;
+}
+.direction-page .venue-photo-wrap .venue-photo {
+  width:100%; height:100%; object-fit:cover; object-position:50% 53%; display:block;
+}
+.direction-page .venue-photo-wrap .venue-photo-placeholder {
+  width:100%; height:100%; display:grid; place-content:center; text-align:center;
+  background:linear-gradient(145deg,#fbf6ee,#eaddcb); color:#8d7457;
+}
+.direction-page .venue-name { margin:0; font-size:15px; line-height:1.3; letter-spacing:.05em; }
+.direction-page .venue-address { margin:3px 0 5px; font-size:9px; line-height:1.5; letter-spacing:.015em; color:#685644; }
+.direction-page .map-button { padding:6px 17px; font-size:9px; }
+.direction-page .directions-details {
+  width:100%; margin-top:6px; padding-top:5px;
+  font-size:8.6px; line-height:1.5; letter-spacing:.015em;
+}
+.direction-page .directions-details > p { margin:2px 0; color:#574638; }
+.direction-page .directions-details > p strong { color:#6b5239; font-weight:600; letter-spacing:.04em; }
+.direction-page .family-section-title { text-align:center; font-size:8.7px; letter-spacing:.2em; margin:2px 0 4px; color:#8d7050; }
+.direction-page .contact-grid { display:block; margin-top:2px; }
+.direction-page .family-columns { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:10px; width:100%; }
+.direction-page .family-column { min-width:0; }
+.direction-page .family-column-title {
+  margin:0 0 3px; padding:3px 0;
+  text-align:center; color:#745b40;
+  border-top:1px solid rgba(169,137,103,.34);
+  border-bottom:1px solid rgba(169,137,103,.22);
+  font:500 8.4px var(--korean); letter-spacing:.12em;
+}
+.direction-page .family-record-list { display:flex; flex-direction:column; min-width:0; }
+.direction-page .family-contact-row {
+  min-height:22px; display:grid; grid-template-columns:auto minmax(0,1fr);
+  gap:3px; align-items:center; padding:3px 0;
+  border-bottom:1px solid rgba(170,140,107,.18); min-width:0;
+}
+.direction-page .family-contact-row strong { color:#5e4935; font-size:8.3px; font-weight:600; white-space:nowrap; }
+.direction-page .family-contact-row span {
+  min-width:0; text-align:right; color:#514337;
+  font-size:7.35px; letter-spacing:-.025em; white-space:nowrap;
+  font-variant-numeric:tabular-nums;
+}
+.direction-page .bank-info { margin-top:7px; padding-top:5px; border-top:1px dashed rgba(170,140,107,.38); }
+.direction-page .bank-grid { display:block; width:100%; }
+.direction-page .family-account-row {
+  min-height:38px; padding:4px 0 3px;
+  border-bottom:1px solid rgba(170,140,107,.19);
+}
+.direction-page .family-account-head { display:flex; justify-content:space-between; align-items:baseline; gap:4px; }
+.direction-page .family-account-head strong { color:#5e4935; font-size:8.2px; font-weight:600; white-space:nowrap; }
+.direction-page .family-account-head small { color:#927d68; font-size:7px; white-space:nowrap; }
+.direction-page .family-account-row > span {
+  display:block; margin-top:2px; color:#514337;
+  font-size:7.45px; line-height:1.35; letter-spacing:-.01em;
+  overflow-wrap:anywhere; font-variant-numeric:tabular-nums;
+}
+@media (max-width:380px) {
+  .calendar-shell--extended { padding-left:12px; padding-right:12px; padding-bottom:29px; }
+  .direction-page .family-columns { gap:7px; }
+  .direction-page .family-contact-row span { font-size:7px; }
+  .direction-page .family-account-row > span { font-size:7.1px; }
+}
+@media (max-height:760px) {
+  .calendar-shell--extended { min-height:238px; padding-top:14px; padding-bottom:24px; }
+  .calendar-shell--extended .calendar-grid { grid-auto-rows:29px; row-gap:3px; }
+  .calendar-shell--extended .calendar-grid > span { min-height:29px; }
+  .calendar-shell--extended .calendar-grid > .weekday { min-height:21px; height:21px; }
+  .calendar-shell--extended .calendar-grid .event-day { width:28px; height:28px; min-height:28px; }
+}
+
+
+
+/* V12: page 3, 5 and 7 lower-balance refinements. */
+
+/* Page 3 — the section label uses the exact same upper eyebrow treatment as other pages.
+   The date/calendar group remains balanced, with the live countdown anchored near the foot. */
+.date-page .page-inner.date-page-inner {
+  justify-content:flex-start !important;
+  padding:0 1px 22px !important;
+  min-height:0;
+}
+.date-page .date-page-inner > .page-eyebrow:first-child {
+  top:clamp(16px,4.6%,27px) !important;
+  left:18px !important;
+  right:18px !important;
+  margin:0 !important;
+  text-align:center !important;
+  letter-spacing:.23em !important;
+  color:#8c745a !important;
+  font:500 clamp(10px,2.6vw,13px) var(--serif) !important;
+}
+.date-page .date-card {
+  flex:0 0 auto;
+  margin:clamp(49px,9vh,66px) 0 8px !important;
+  padding:12px 9px 11px !important;
+  width:100%;
+}
+.date-page .date-ornament { flex:0 0 auto; margin:8px auto 9px !important; }
+.date-page .calendar-shell--extended {
+  width:100%;
+  flex:0 0 auto;
+  height:clamp(244px,35vh,260px);
+  min-height:244px;
+  margin:0 !important;
+  padding:14px 17px 18px !important;
+  box-sizing:border-box;
+  overflow:hidden;
+}
+.date-page .calendar-shell--extended .calendar { margin:0; }
+.date-page .calendar-shell--extended .calendar-month {
+  margin:0 0 5px !important;
+  text-align:center;
+  line-height:1.25;
+}
+.date-page .calendar-shell--extended .calendar-grid {
+  grid-template-columns:repeat(7,minmax(0,1fr)) !important;
+  grid-auto-rows:30px !important;
+  gap:2px 0 !important;
+  font-variant-numeric:tabular-nums lining-nums;
+  font-feature-settings:"tnum" 1;
+}
+.date-page .calendar-shell--extended .calendar-grid > span {
+  display:grid !important;
+  width:100%;
+  height:30px !important;
+  min-height:30px !important;
+  margin:0 !important;
+  padding:0 !important;
+  place-items:center !important;
+  text-align:center;
+  line-height:1 !important;
+  font-size:12px;
+  font-variant-numeric:tabular-nums lining-nums;
+}
+.date-page .calendar-shell--extended .calendar-grid > .weekday {
+  height:21px !important;
+  min-height:21px !important;
+  font-size:10px !important;
+  letter-spacing:.015em;
+}
+.date-page .calendar-shell--extended .calendar-grid .event-day {
+  display:grid !important;
+  place-items:center !important;
+  width:30px !important;
+  height:30px !important;
+  min-height:30px !important;
+  margin:0 auto !important;
+  padding:0 !important;
+  line-height:1 !important;
+}
+.date-page .calendar-shell--extended .calendar-grid .event-day svg {
+  display:block;
+  inset:0 !important;
+  width:30px !important;
+  height:30px !important;
+}
+.date-page .calendar-shell--extended .calendar-grid .event-day span {
+  display:block;
+  position:relative;
+  z-index:2;
+  line-height:1 !important;
+  transform:none !important;
+  font-size:11px;
+  font-variant-numeric:tabular-nums;
+  text-align:center;
+}
+.date-page .calendar-note {
+  flex:0 0 auto;
+  margin:7px 0 0 !important;
+  line-height:1.55;
+  text-align:center;
+}
+.date-page .date-dday-bottom {
+  flex:0 0 auto;
+  align-self:center;
+  margin:auto 0 1px !important;
+  padding-top:9px;
+  color:#987a59;
+  font-size:22px;
+  line-height:1;
+  letter-spacing:.1em;
+  text-align:center;
+}
+
+/* Page 5 — preserve the heading at the top; gather the venue and family details lower down. */
+.direction-page .page-inner {
+  justify-content:flex-end !important;
+  padding-top:45px !important;
+  padding-bottom:24px !important;
+  gap:0 !important;
+}
+.direction-page .venue-photo-wrap {
+  margin-top:5px !important;
+  margin-bottom:9px !important;
+}
+.direction-page .venue-name { margin-top:0 !important; }
+.direction-page .venue-address { margin-bottom:6px !important; }
+.direction-page .directions-details {
+  margin-top:8px !important;
+  padding-top:8px !important;
+  line-height:1.65 !important;
+}
+.direction-page .directions-details > p { margin:4px 0 !important; }
+.direction-page .family-section-title { margin:5px 0 6px !important; }
+.direction-page .family-columns { gap:12px !important; }
+.direction-page .family-contact-row {
+  min-height:25px !important;
+  padding:5px 0 !important;
+  gap:6px !important;
+}
+.direction-page .family-account-row {
+  min-height:42px !important;
+  padding:6px 0 5px !important;
+}
+.direction-page .bank-info { margin-top:9px !important; padding-top:7px !important; }
+.direction-page .family-contact-row strong,
+.direction-page .family-account-head strong { font-size:8.7px !important; }
+.direction-page .family-contact-row span { font-size:7.7px !important; letter-spacing:0 !important; }
+.direction-page .family-account-row > span { font-size:7.7px !important; line-height:1.45 !important; }
+@media (max-width:380px) {
+  .direction-page .family-columns { gap:8px !important; }
+  .direction-page .family-contact-row { min-height:23px !important; padding:4px 0 !important; }
+  .direction-page .family-account-row { min-height:39px !important; padding:5px 0 4px !important; }
+}
+@media (max-height:760px) {
+  .direction-page .page-inner { padding-top:40px !important; padding-bottom:21px !important; }
+  .direction-page .venue-photo-wrap { min-height:66px; max-height:76px; }
+  .direction-page .directions-details { margin-top:5px !important; padding-top:5px !important; }
+  .direction-page .directions-details > p { margin:3px 0 !important; }
+  .direction-page .family-section-title { margin:3px 0 4px !important; }
+  .direction-page .family-contact-row { min-height:21px !important; padding:3px 0 !important; }
+  .direction-page .family-account-row { min-height:35px !important; padding:4px 0 3px !important; }
+}
+
+/* Page 7 — keep the V7 photograph and design, but position the message group lower. */
+.thankyou-photo { object-position:50% 39% !important; }
+.thankyou-content {
+  justify-content:flex-end !important;
+  padding:15% 15px 12% !important;
+}
+.thankyou-script { margin:0 0 17px !important; }
+.thankyou-message { line-height:1.95 !important; }
+.thankyou-sign { margin-top:13px !important; }
+.final-stamp { margin-top:14px !important; }
+@media (max-height:700px) {
+  .thankyou-content { padding-bottom:10% !important; }
+  .thankyou-script { margin-bottom:12px !important; }
+  .thankyou-message { line-height:1.75 !important; }
+  .final-stamp { width:64px; height:64px; margin-top:9px !important; }
+}
+
+/* Final spacing balance: leave a clear header gap on page 5 and keep faces clear on page 7. */
+.direction-page .venue-photo-wrap { height:11% !important; min-height:58px !important; max-height:60px !important; }
+.direction-page .family-contact-row { min-height:24px !important; padding:4px 0 !important; }
+.direction-page .family-account-row { min-height:38px !important; padding:5px 0 4px !important; }
+.direction-page .directions-details .ornament { margin:8px auto !important; }
+.thankyou-photo { object-position:50% 100% !important; }
+.thankyou-script { margin-bottom:12px !important; }
+.thankyou-message { line-height:1.78 !important; }
+.thankyou-sign { margin-top:10px !important; }
+.final-stamp { margin-top:10px !important; }
+@media (max-height:760px) {
+  .direction-page .venue-photo-wrap { min-height:55px !important; max-height:58px !important; }
+  .direction-page .family-contact-row { min-height:21px !important; padding:3px 0 !important; }
+  .direction-page .family-account-row { min-height:35px !important; padding:4px 0 3px !important; }
+}
+
+
+
+/* V13 refinements requested: page 2 warm paper, page 3 centered date group,
+   page 5 centered composition, page 7 centered closing message. */
+
+/* PAGE 02 — bring the invitation into the same warm cream palette as the other leaves. */
+.invitation-page {
+  background-color:#eadbc8 !important;
+  background-image:
+    linear-gradient(rgba(234,219,200,.80), rgba(232,216,196,.84)),
+    url('assets/couple-cover.jpg') !important;
+  background-size:cover !important;
+  background-position:center 44% !important;
+  background-repeat:no-repeat !important;
+  box-shadow:inset 0 0 28px rgba(155,119,82,.10), inset 0 0 0 5px rgba(255,255,255,.13) !important;
+}
+/* Remove the extra stamp/airplane in the invitation header; keep the shared eyebrow. */
+.invitation-page .airmail-stamp,
+.invitation-page::before { display:none !important; }
+.invitation-page .page-inner > .page-eyebrow:first-child {
+  top:clamp(16px,4.6%,27px) !important;
+  color:#765d45 !important;
+}
+.invitation-page .invitation-copy,
+.invitation-page .parent-lines,
+.invitation-page .invitation-signoff { color:#4c3b2d !important; }
+.invitation-page .parent-lines span { color:#755d46 !important; }
+
+/* PAGE 03 — keep the same top eyebrow rhythm; center the date/calendar/countdown as one group. */
+.date-page .page-inner.date-page-inner {
+  justify-content:center !important;
+  align-items:center !important;
+  padding:0 1px 24px !important;
+  gap:0 !important;
+}
+.date-page .date-page-inner > .page-eyebrow:first-child {
+  position:absolute !important;
+  top:clamp(16px,4.6%,27px) !important;
+  left:18px !important;
+  right:18px !important;
+  margin:0 !important;
+  text-align:center !important;
+  letter-spacing:.23em !important;
+  color:#8c745a !important;
+  font:500 clamp(10px,2.6vw,13px) var(--serif) !important;
+}
+.date-page .date-card {
+  flex:0 0 auto !important;
+  width:100% !important;
+  margin:clamp(45px,7vh,57px) 0 8px !important;
+  padding:12px 9px 11px !important;
+}
+.date-page .date-ornament { flex:0 0 auto !important; margin:7px auto 8px !important; }
+.date-page .calendar-shell--extended {
+  flex:0 0 auto !important;
+  width:100% !important;
+  height:clamp(238px,33vh,252px) !important;
+  min-height:238px !important;
+  margin:0 !important;
+  padding:14px 17px 27px !important;
+  overflow:hidden !important;
+  box-sizing:border-box !important;
+}
+.date-page .calendar-shell--extended .calendar { margin:0 !important; width:100% !important; }
+.date-page .calendar-shell--extended .calendar-month {
+  margin:0 0 5px !important;
+  text-align:center !important;
+  line-height:1.25 !important;
+}
+.date-page .calendar-shell--extended .calendar-grid {
+  display:grid !important;
+  grid-template-columns:repeat(7,minmax(0,1fr)) !important;
+  grid-auto-rows:30px !important;
+  gap:2px 0 !important;
+  font-variant-numeric:tabular-nums lining-nums !important;
+  font-feature-settings:"tnum" 1 !important;
+}
+.date-page .calendar-shell--extended .calendar-grid > span {
+  display:grid !important;
+  place-items:center !important;
+  box-sizing:border-box !important;
+  width:100% !important;
+  height:30px !important;
+  min-height:30px !important;
+  margin:0 !important;
+  padding:0 !important;
+  line-height:1 !important;
+  text-align:center !important;
+}
+.date-page .calendar-shell--extended .calendar-grid > .weekday {
+  height:21px !important;
+  min-height:21px !important;
+  font-size:10px !important;
+  letter-spacing:.01em !important;
+}
+.date-page .calendar-shell--extended .calendar-grid > .calendar-day {
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  place-items:center !important;
+  position:relative !important;
+  line-height:1 !important;
+}
+.date-page .calendar-shell--extended .calendar-grid .event-day {
+  display:grid !important;
+  position:relative !important;
+  inset:auto !important;
+  place-items:center !important;
+  justify-self:center !important;
+  align-self:center !important;
+  width:29px !important;
+  height:29px !important;
+  min-height:29px !important;
+  margin:0 !important;
+  padding:0 !important;
+  transform:none !important;
+  line-height:1 !important;
+  vertical-align:middle !important;
+}
+.date-page .calendar-shell--extended .calendar-grid .event-day svg {
+  position:absolute !important;
+  inset:0 !important;
+  display:block !important;
+  width:29px !important;
+  height:29px !important;
+  margin:0 !important;
+}
+.date-page .calendar-shell--extended .calendar-grid .event-day span {
+  position:relative !important;
+  z-index:2 !important;
+  display:block !important;
+  margin:0 !important;
+  padding:0 !important;
+  font-size:11px !important;
+  line-height:1 !important;
+  transform:none !important;
+  text-align:center !important;
+}
+.date-page .calendar-note {
+  flex:0 0 auto !important;
+  margin:8px 0 0 !important;
+  text-align:center !important;
+  line-height:1.55 !important;
+}
+.date-page .date-dday-bottom {
+  flex:0 0 auto !important;
+  align-self:center !important;
+  margin:13px 0 0 !important;
+  padding:0 !important;
+  color:#987a59 !important;
+  font-size:21px !important;
+  line-height:1 !important;
+  letter-spacing:.11em !important;
+  text-align:center !important;
+}
+
+/* PAGE 05 — center the whole venue/contact composition vertically, not at the foot. */
+.direction-page .page-inner {
+  justify-content:center !important;
+  align-items:center !important;
+  padding:43px 0 28px !important;
+  gap:1px !important;
+}
+.direction-page .venue-photo-wrap {
+  flex:0 0 auto !important;
+  width:100% !important;
+  height:12% !important;
+  min-height:64px !important;
+  max-height:76px !important;
+  margin:5px 0 7px !important;
+}
+.direction-page .venue-name { margin:0 !important; }
+.direction-page .venue-address { margin:4px 0 6px !important; }
+.direction-page .directions-details {
+  flex:0 1 auto !important;
+  width:100% !important;
+  margin:7px 0 0 !important;
+  padding:7px 0 0 !important;
+}
+@media (max-height:740px) {
+  .direction-page .page-inner { padding-top:39px !important; padding-bottom:25px !important; }
+  .direction-page .venue-photo-wrap { min-height:58px !important; max-height:66px !important; }
+  .direction-page .directions-details { margin-top:5px !important; padding-top:5px !important; }
+}
+
+/* PAGE 07 — center the Thank you title and the closing message as one balanced group. */
+.thankyou-content {
+  justify-content:center !important;
+  align-items:center !important;
+  text-align:center !important;
+  padding:12% 16px 12% !important;
+  gap:0 !important;
+}
+.thankyou-script {
+  width:100% !important;
+  margin:0 0 20px !important;
+  text-align:center !important;
+}
+.thankyou-message { margin:0 !important; text-align:center !important; line-height:1.9 !important; }
+.thankyou-sign { margin:14px 0 0 !important; text-align:center !important; }
+.thankyou-content > .ornament { flex:0 0 auto !important; margin:12px auto !important; }
+.final-stamp { flex:0 0 auto !important; margin:17px 0 0 !important; }
+@media (max-height:700px) {
+  .thankyou-content { padding-top:9% !important; padding-bottom:9% !important; }
+  .thankyou-script { margin-bottom:13px !important; }
+  .thankyou-message { line-height:1.72 !important; }
+  .thankyou-sign { margin-top:10px !important; }
+  .final-stamp { width:66px !important; height:66px !important; margin-top:11px !important; }
+}
+
+
+
+/* V14 refinements requested: match invitation paper tone, remove its ornament,
+   align the wedding heart in the calendar, place D-day above page number,
+   and center the closing title with its text below. */
+
+/* PAGE 02 — same paper color and grain as the other pages, with only a very soft photo watermark. */
+.invitation-page {
+  background-color:#f0e4d4 !important;
+  background-image:
+    radial-gradient(ellipse at 14% 8%, rgba(248,238,222,.66), transparent 34%),
+    radial-gradient(ellipse at 90% 93%, rgba(205,177,144,.24), transparent 35%),
+    repeating-linear-gradient(0deg, rgba(145,111,79,.022) 0px, rgba(145,111,79,.022) 1px, transparent 1px, transparent 4px),
+    linear-gradient(145deg,#f3e8d9,#e9d9c7 100%) !important;
+}
+.invitation-page::before {
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:0 !important;
+  opacity:.055 !important;
+  background:url('assets/couple-cover.jpg') center 43% / cover no-repeat !important;
+  transform:none !important;
+  pointer-events:none !important;
+}
+.invitation-page .page-inner { position:relative !important; z-index:1 !important; }
+.invitation-page .page-inner > .page-eyebrow:first-child + .ornament { display:none !important; }
+.invitation-page .page-eyebrow { color:#765f49 !important; }
+
+/* PAGE 03 — every date, including the 27th, occupies the exact same 30px grid cell. */
+.date-page .calendar-shell--extended .calendar-grid {
+  grid-template-columns:repeat(7,minmax(0,1fr)) !important;
+  grid-auto-rows:30px !important;
+  column-gap:0 !important;
+  row-gap:2px !important;
+  align-items:stretch !important;
+  font-variant-numeric:tabular-nums lining-nums !important;
+  font-feature-settings:"tnum" 1 !important;
+}
+.date-page .calendar-shell--extended .calendar-grid > .calendar-day {
+  display:flex !important;
+  width:100% !important;
+  height:30px !important;
+  min-height:30px !important;
+  margin:0 !important;
+  padding:0 !important;
+  align-items:center !important;
+  justify-content:center !important;
+  position:relative !important;
+  line-height:30px !important;
+  text-align:center !important;
+  font-size:12px !important;
+  font-variant-numeric:tabular-nums lining-nums !important;
+}
+.date-page .calendar-shell--extended .calendar-grid .event-day {
+  position:relative !important;
+  inset:auto !important;
+  display:grid !important;
+  place-items:center !important;
+  flex:0 0 30px !important;
+  width:30px !important;
+  height:30px !important;
+  min-height:30px !important;
+  margin:0 !important;
+  padding:0 !important;
+  transform:none !important;
+  line-height:30px !important;
+  vertical-align:middle !important;
+}
+.date-page .calendar-shell--extended .calendar-grid .event-day svg {
+  position:absolute !important;
+  inset:0 !important;
+  display:block !important;
+  width:30px !important;
+  height:30px !important;
+  margin:0 !important;
+  transform:none !important;
+}
+.date-page .calendar-shell--extended .calendar-grid .event-day span {
+  position:absolute !important;
+  inset:0 !important;
+  z-index:2 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:30px !important;
+  height:30px !important;
+  margin:0 !important;
+  padding:0 0 1px !important;
+  line-height:1 !important;
+  transform:none !important;
+  text-align:center !important;
+  font-size:11px !important;
+  font-variant-numeric:tabular-nums lining-nums !important;
+}
+/* Keep the page number visible beneath the countdown; D-day sits in the gap. */
+.date-page .date-page-inner { position:static !important; }
+.date-page .date-dday-bottom {
+  position:absolute !important;
+  left:0 !important;
+  right:0 !important;
+  bottom:34px !important;
+  display:block !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  align-self:auto !important;
+  text-align:center !important;
+  color:#987a59 !important;
+  font-size:23px !important;
+  line-height:1 !important;
+  letter-spacing:.11em !important;
+}
+.date-page .page-number { bottom:14px !important; }
+
+/* PAGE 07 — align Thank you on the vertical center line and flow the message below it. */
+.thankyou-content {
+  position:absolute !important;
+  inset:0 !important;
+  display:block !important;
+  padding:0 !important;
+  text-align:center !important;
+}
+.thankyou-script {
+  position:absolute !important;
+  top:49% !important;
+  left:10px !important;
+  right:10px !important;
+  width:auto !important;
+  margin:0 !important;
+  transform:translateY(-50%) !important;
+  text-align:center !important;
+  font-size:clamp(40px,9.5vw,54px) !important;
+  line-height:1 !important;
+}
+.thankyou-message {
+  position:absolute !important;
+  top:59% !important;
+  left:15px !important;
+  right:15px !important;
+  margin:0 !important;
+  text-align:center !important;
+  line-height:1.82 !important;
+}
+.thankyou-content > .ornament {
+  position:absolute !important;
+  top:78% !important;
+  left:50% !important;
+  margin:0 !important;
+  transform:translateX(-50%) !important;
+}
+.thankyou-sign {
+  position:absolute !important;
+  top:82% !important;
+  left:10px !important;
+  right:10px !important;
+  margin:0 !important;
+  text-align:center !important;
+}
+.thankyou-content .final-stamp {
+  position:absolute !important;
+  right:16px !important;
+  bottom:5.5% !important;
+  margin:0 !important;
+  width:62px !important;
+  height:62px !important;
+  opacity:.78 !important;
+}
+@media (max-height:700px) {
+  .thankyou-script { top:46% !important; font-size:clamp(36px,8.8vw,48px) !important; }
+  .thankyou-message { top:57% !important; font-size:12px !important; line-height:1.68 !important; }
+  .thankyou-content > .ornament { top:77% !important; }
+  .thankyou-sign { top:81% !important; font-size:13px !important; }
+  .thankyou-content .final-stamp { width:52px !important; height:52px !important; bottom:5% !important; }
+}
+
+
+
+/* V15 refinements — retain V13 arch photograph treatment and improve page-specific details. */
+
+/* PAGE 02 — restore the V13 full-bleed arch photograph. Keep the photo's natural color;
+   a restrained warm wash remains only to protect text legibility. */
+.invitation-page {
+  background-color:#eadbc8 !important;
+  background-image:
+    linear-gradient(rgba(248,240,229,.38), rgba(232,216,196,.46)),
+    url('assets/couple-cover.jpg') !important;
+  background-size:cover !important;
+  background-position:center 44% !important;
+  background-repeat:no-repeat !important;
+  box-shadow:inset 0 0 28px rgba(155,119,82,.10), inset 0 0 0 5px rgba(255,255,255,.13) !important;
+}
+.invitation-page::before { display:none !important; content:none !important; }
+.invitation-page .airmail-stamp { display:none !important; }
+.invitation-page .page-inner { position:relative !important; z-index:1 !important; }
+.invitation-page .page-inner > .page-eyebrow:first-child + .ornament { display:none !important; }
+
+/* PAGE 03 — move D-day a little lower while keeping clear space above the page number. */
+.date-page .date-dday-bottom {
+  bottom:29px !important;
+  font-size:23px !important;
+  line-height:1 !important;
+}
+
+/* PAGE 04 — ten additional photo slots in the expanded gallery. */
+.gallery-grid { align-items:stretch; }
+.gallery-empty-slot {
+  position:relative;
+  display:flex;
+  min-width:0;
+  min-height:0;
+  aspect-ratio:3 / 4;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:12px 8px;
+  border:1px dashed rgba(169,137,103,.55);
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(255,255,255,.6), transparent 66%),
+    linear-gradient(145deg,#f8f1e7,#eee2d2);
+  color:#92785b;
+  text-align:center;
+  box-shadow:inset 0 0 0 5px rgba(255,255,255,.20);
+}
+.gallery-empty-slot__plus {
+  display:grid;
+  place-items:center;
+  width:33px;
+  height:33px;
+  border:1px solid rgba(169,137,103,.55);
+  border-radius:50%;
+  color:#a88967;
+  font:24px/1 var(--serif);
+}
+.gallery-empty-slot strong {
+  font:500 11px var(--serif);
+  letter-spacing:.16em;
+  color:#80694f;
+}
+.gallery-empty-slot small {
+  font-size:9px;
+  letter-spacing:.04em;
+  color:#a08a72;
+}
+.gallery-thumb--preview { position:relative; }
+.gallery-preview-badge {
+  position:absolute;
+  left:7px;
+  bottom:7px;
+  padding:3px 7px;
+  border:1px solid rgba(255,255,255,.72);
+  background:rgba(70,54,39,.48);
+  color:#fffaf2;
+  font:9px var(--serif);
+  letter-spacing:.12em;
+}
+
+/* PAGE 06 — keep KINDLY REPLY, make the Korean question the same size as its lead. */
+.rsvp-title {
+  margin:0 !important;
+  font-size:11px !important;
+  line-height:1.7 !important;
+  font-weight:400 !important;
+  color:#88745e !important;
+  letter-spacing:0 !important;
+}
+.rsvp-lead { font-size:11px !important; }
+
+/* PAGE 07 — move the Korean note into the upper-right negative space of the photograph.
+   Keep Thank you and put the sign-off directly below it. Remove the passport motif. */
+.thankyou-page .airmail-stamp,
+.thankyou-page .final-stamp,
+.thankyou-page .thankyou-content > .ornament { display:none !important; }
+.thankyou-wash {
+  background:linear-gradient(180deg,
+    rgba(248,240,229,.14) 0%,
+    rgba(248,240,229,.04) 43%,
+    rgba(248,240,229,.16) 100%) !important;
+}
+.thankyou-content {
+  position:absolute !important;
+  inset:0 !important;
+  display:block !important;
+  padding:0 !important;
+  text-align:center !important;
+}
+.thankyou-message {
+  position:absolute !important;
+  top:5.5% !important;
+  right:5.5% !important;
+  left:auto !important;
+  width:51% !important;
+  margin:0 !important;
+  color:#554434 !important;
+  font-size:10px !important;
+  line-height:1.78 !important;
+  letter-spacing:.015em !important;
+  text-align:right !important;
+  text-shadow:0 1px 5px rgba(255,250,242,.9) !important;
+}
+.thankyou-script {
+  position:absolute !important;
+  top:61% !important;
+  left:8px !important;
+  right:8px !important;
+  width:auto !important;
+  margin:0 !important;
+  transform:translateY(-50%) !important;
+  text-align:center !important;
+  font-size:clamp(40px,9.5vw,54px) !important;
+  line-height:1 !important;
+  color:#705740 !important;
+}
+.thankyou-sign {
+  position:absolute !important;
+  top:69% !important;
+  left:10px !important;
+  right:10px !important;
+  margin:0 !important;
+  text-align:center !important;
+  font-size:14px !important;
+  letter-spacing:.13em !important;
+  color:#594a3b !important;
+}
+@media (max-height:700px) {
+  .thankyou-message { top:4.5% !important; font-size:9.5px !important; line-height:1.68 !important; }
+  .thankyou-script { top:59% !important; font-size:clamp(36px,8.8vw,48px) !important; }
+  .thankyou-sign { top:68% !important; font-size:13px !important; }
+}
+
+
+
+/* ===== V16 FINAL RESTORATION & ALIGNMENT ===== */
+
+/* PAGE 02 — restore the V13 invitation leaf: warm cream wash and the original arch photograph. */
+.invitation-page {
+  background-color:#eadbc8 !important;
+  background-image:
+    linear-gradient(rgba(234,219,200,.80), rgba(232,216,196,.84)),
+    url('assets/couple-cover.jpg') !important;
+  background-size:cover !important;
+  background-position:center 44% !important;
+  background-repeat:no-repeat !important;
+  box-shadow:inset 0 0 28px rgba(155,119,82,.10), inset 0 0 0 5px rgba(255,255,255,.13) !important;
+}
+.invitation-page .airmail-stamp,
+.invitation-page::before { display:none !important; content:none !important; }
+.invitation-page .page-inner { position:relative !important; z-index:1 !important; }
+.invitation-page .page-inner > .page-eyebrow:first-child + .ornament { display:none !important; }
+.invitation-page .page-eyebrow { color:#765d45 !important; }
+
+
+/* V16 — unify all section heading baselines from pages 2 through 6. */
+.invitation-page .page-inner > .page-eyebrow:first-child,
+.date-page .date-page-inner > .page-eyebrow:first-child,
+.travel-page .page-inner > .page-eyebrow:first-child,
+.direction-page .page-inner > .page-eyebrow:first-child,
+.rsvp-page .page-inner > .page-eyebrow:first-child {
+  position:absolute !important;
+  top:clamp(16px,4.6%,27px) !important;
+  left:18px !important;
+  right:18px !important;
+  z-index:8 !important;
+  margin:0 !important;
+  padding:0 !important;
+  width:auto !important;
+  transform:none !important;
+  text-align:center !important;
+  line-height:1.25 !important;
+  letter-spacing:.23em !important;
+  font:500 clamp(10px,2.6vw,13px) 'Cormorant Garamond','Noto Serif KR',Georgia,serif !important;
+  color:#8c745a !important;
+}
+@media (max-height:700px) {
+  .invitation-page .page-inner > .page-eyebrow:first-child,
+  .date-page .date-page-inner > .page-eyebrow:first-child,
+  .travel-page .page-inner > .page-eyebrow:first-child,
+  .direction-page .page-inner > .page-eyebrow:first-child,
+  .rsvp-page .page-inner > .page-eyebrow:first-child { top:13px !important; }
+}
+
+/* PAGE 07 — restore the V14 composition, including the upper-right flight stamp,
+   centered Thank you message, ornament and lower passport seal. */
+.thankyou-page .airmail-stamp { display:grid !important; }
+.thankyou-page .final-stamp { display:grid !important; }
+.thankyou-page .thankyou-content > .ornament { display:block !important; }
+.thankyou-wash {
+  background:linear-gradient(180deg,rgba(249,242,232,.59),rgba(248,240,229,.73) 42%,rgba(248,239,226,.31) 100%) !important;
+}
+
+/* PAGE 07 — align Thank you on the vertical center line and flow the message below it. */
+.thankyou-content {
+  position:absolute !important;
+  inset:0 !important;
+  display:block !important;
+  padding:0 !important;
+  text-align:center !important;
+}
+.thankyou-script {
+  position:absolute !important;
+  top:49% !important;
+  left:10px !important;
+  right:10px !important;
+  width:auto !important;
+  margin:0 !important;
+  transform:translateY(-50%) !important;
+  text-align:center !important;
+  font-size:clamp(40px,9.5vw,54px) !important;
+  line-height:1 !important;
+}
+.thankyou-message {
+  position:absolute !important;
+  top:59% !important;
+  left:15px !important;
+  right:15px !important;
+  margin:0 !important;
+  text-align:center !important;
+  line-height:1.82 !important;
+}
+.thankyou-content > .ornament {
+  position:absolute !important;
+  top:78% !important;
+  left:50% !important;
+  margin:0 !important;
+  transform:translateX(-50%) !important;
+}
+.thankyou-sign {
+  position:absolute !important;
+  top:82% !important;
+  left:10px !important;
+  right:10px !important;
+  margin:0 !important;
+  text-align:center !important;
+}
+.thankyou-content .final-stamp {
+  position:absolute !important;
+  right:16px !important;
+  bottom:5.5% !important;
+  margin:0 !important;
+  width:62px !important;
+  height:62px !important;
+  opacity:.78 !important;
+}
+@media (max-height:700px) {
+  .thankyou-script { top:46% !important; font-size:clamp(36px,8.8vw,48px) !important; }
+  .thankyou-message { top:57% !important; font-size:12px !important; line-height:1.68 !important; }
+  .thankyou-content > .ornament { top:77% !important; }
+  .thankyou-sign { top:81% !important; font-size:13px !important; }
+  .thankyou-content .final-stamp { width:52px !important; height:52px !important; bottom:5% !important; }
+}
+
+/* V16.1 — normalize the physical title baseline despite page-specific inner padding. */
+.date-page .date-page-inner > .page-eyebrow:first-child {
+  top:calc(clamp(16px,4.6%,27px) + 17px) !important;
+}
+.rsvp-page .page-inner > .page-eyebrow:first-child {
+  top:calc(clamp(16px,4.6%,27px) + 3px) !important;
+}
+@media (max-height:700px) {
+  .date-page .date-page-inner > .page-eyebrow:first-child { top:30px !important; }
+  .rsvp-page .page-inner > .page-eyebrow:first-child { top:16px !important; }
+}
+
+
+/* V16.2 — remove V15's narrow upper-right note width so the complete V14 letter
+   returns to its centered, comfortable measure below the title. */
+.thankyou-message {
+  position:absolute !important;
+  top:59% !important;
+  left:15px !important;
+  right:15px !important;
+  width:auto !important;
+  margin:0 !important;
+  color:#5f5143 !important;
+  font-size:13px !important;
+  line-height:1.82 !important;
+  letter-spacing:normal !important;
+  text-align:center !important;
+  text-shadow:0 1px 7px rgba(255,255,255,.85) !important;
+}
+.thankyou-sign {
+  top:82% !important;
+  left:10px !important;
+  right:10px !important;
+  color:#594a3b !important;
+  font-size:15px !important;
+  letter-spacing:.16em !important;
+  text-align:center !important;
+}
+
+
+
+/* V17 — page 2: match the paper tone outside the arch only. The photo inside the arch,
+   including the lower invitation text area, keeps its original V13 color treatment. */
+.invitation-page { position:relative !important; }
+.invitation-page::before { display:none !important; content:none !important; }
+.invitation-page .invitation-outside-paper {
+  position:absolute !important; inset:0 !important; z-index:1 !important;
+  pointer-events:none !important;
+  background:url("assets/paper-tone.png") center / 100% 100% no-repeat !important;
+}
+.invitation-page .page-inner { position:relative !important; z-index:2 !important; }
+
+
+
+/* V19 — unify page 2 postal ornaments and align page 3 title to page 4 title. */
+.invitation-page {
+  border: 1px solid rgba(169, 138, 104, .58) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 250, 240, .58) !important;
+}
+.invitation-page::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(169, 138, 104, .34);
+  border-radius: 10px;
+  pointer-events: none;
+  z-index: 1;
+}
+.invitation-page .airmail-stamp {
+  display: grid !important;
+  right: 12px !important;
+  top: 12px !important;
+  width: 62px !important;
+  height: 62px !important;
+  border: 1px dashed rgba(174,143,110,.6) !important;
+  border-radius: 50% !important;
+  color: #b99b78 !important;
+  opacity: .68 !important;
+  transform: rotate(12deg) !important;
+  z-index: 3 !important;
+}
+.invitation-page .page-inner { position:relative; z-index:2; }
+/* Page 3 uses precisely the same top offset, type settings and anchor as page 4. */
+.date-page .date-page-inner > .page-eyebrow:first-child,
+.travel-page .page-inner > .page-eyebrow:first-child {
+  position: absolute !important;
+  top: clamp(16px, 4.6%, 27px) !important;
+  left: 18px !important;
+  right: 18px !important;
+  width: auto !important;
+  margin: 0 !important;
+  text-align: center !important;
+  letter-spacing: .23em !important;
+  color: #8c745a !important;
+  font: 500 clamp(10px, 2.6vw, 13px) var(--serif) !important;
+}
+
+
+
+/* V20 — make Invitation's decorative page frame visible above its separate
+   outside-paper layer, and align SAVE THE DATE with the shared section-title
+   baseline used by Invitation / Travel Log / Directions / Kindly Reply. */
+.invitation-page::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  inset: 10px !important;
+  border: 1px solid rgba(175, 143, 109, .30) !important;
+  border-radius: 3px 9px 9px 3px !important;
+  box-shadow: inset 0 0 0 4px rgba(255, 250, 240, .10) !important;
+  pointer-events: none !important;
+  z-index: 3 !important;
+}
+.invitation-page .page-number { z-index: 5 !important; }
+.invitation-page .airmail-stamp { z-index: 5 !important; }
+
+/* The date page inner wrapper is intentionally static for the D-day anchor.
+   Add the paper's top padding to its heading offset so its physical position
+   matches headings positioned from the padded .page-inner on page 2 and 4–6. */
+.date-page .date-page-inner > .page-eyebrow:first-child {
+  top: calc(clamp(16px, 4.6%, 27px) + clamp(18px, 4.2vw, 30px)) !important;
+}
+@media (max-height: 700px) {
+  .date-page .date-page-inner > .page-eyebrow:first-child {
+    top: calc(13px + clamp(18px, 4.2vw, 30px)) !important;
+  }
+}
+
+
+
+/* V21 — enlarge all section headings while preserving their shared alignment.
+   The heading text grows upward from a fixed lower visual edge; absolute top
+   anchors are intentionally left unchanged across pages 2–6. */
+.invitation-page .page-inner > .page-eyebrow:first-child,
+.date-page .date-page-inner > .page-eyebrow:first-child,
+.travel-page .page-inner > .page-eyebrow:first-child,
+.direction-page .page-inner > .page-eyebrow:first-child,
+.rsvp-page .page-inner > .page-eyebrow:first-child {
+  font-size: clamp(13px, 3.2vw, 16px) !important;
+  line-height: 1 !important;
+  transform: translateY(-2px) !important;
+  transform-origin: center bottom !important;
+  letter-spacing: .23em !important;
+  white-space: nowrap !important;
+}
+
+</style>
+
+<style id="v22-page7-readability">
+/* V22: improve closing-letter contrast and remove the centered star divider. */
+.thankyou-page .thankyou-message {
+  color: #17130f !important;
+  text-shadow: none !important;
+}
+.thankyou-page .thankyou-content > .ornament {
+  display: none !important;
+  visibility: hidden !important;
+}
+</style>
+
+<style id="v23-readable-type-scale">
+/* V23 — modest, consistent type enlargement for comfortable reading by older guests.
+   Decorative geometry and page title anchors remain unchanged. */
+
+/* Page 1 — cover details */
+.cover-tagline { font-size: 13.5px !important; }
+.cover-names { font-size: clamp(22px, 5.25vw, 28px) !important; }
+.cover-date { font-size: 14px !important; }
+.cover-venue { font-size: 12px !important; }
+
+/* Page 2 — invitation copy and family details */
+.invitation-copy {
+  font-size: clamp(14.5px, 3.8vw, 17.5px) !important;
+  line-height: 1.95 !important;
+}
+.parent-lines { font-size: 12px !important; line-height: 1.8 !important; }
+.parent-lines strong { font-size: 16px !important; }
+.parent-lines span { font-size: 11px !important; }
+.invitation-signoff { font-size: 13px !important; line-height: 1.85 !important; }
+
+/* Page 3 — date and calendar */
+.date-time { font-size: 15px !important; }
+.calendar-month { font-size: 18px !important; }
+.calendar-grid { font-size: 13px !important; }
+.calendar-grid .weekday { font-size: 11px !important; }
+.calendar-grid .event-day { font-size: 13px !important; }
+.calendar-note { font-size: 12px !important; line-height: 1.75 !important; }
+.dday { font-size: 26px !important; }
+
+/* Page 4 — travel log and gallery captions */
+.travel-intro { font-size: clamp(11.5px, 3.0vw, 13px) !important; }
+.stamp-photo figcaption { font-size: 12px !important; }
+.more-button { font-size: 12px !important; }
+
+/* Page 5 — venue, transportation, contacts and bank details */
+.direction-page .venue-name { font-size: 16px !important; }
+.direction-page .venue-address { font-size: 10.5px !important; line-height: 1.6 !important; }
+.direction-page .map-button { font-size: 10.5px !important; }
+.direction-page .directions-details { font-size: 11px !important; line-height: 1.65 !important; }
+.direction-page .contact-grid { font-size: 11px !important; line-height: 1.75 !important; }
+.direction-page .family-section-title { font-size: 9.7px !important; }
+.direction-page .bank-row strong { font-size: 8.8px !important; }
+.direction-page .bank-row span { font-size: 8.5px !important; line-height: 1.45 !important; }
+.direction-page .bank-row small { font-size: 8px !important; }
+
+/* Page 6 — RSVP labels and controls */
+.rsvp-title { font-size: 12px !important; }
+.rsvp-lead { font-size: 12px !important; }
+.form-label { font-size: 11px !important; }
+.form-label .form-icon { font-size: 13px !important; }
+.rsvp-input, .rsvp-select, .rsvp-textarea { font-size: 12px !important; }
+.choice span { font-size: 10.5px !important; }
+.submit-rsvp { font-size: 12px !important; }
+.form-note { font-size: 10px !important; }
+.submit-status { font-size: 10px !important; }
+
+/* Page 7 — closing message */
+.thankyou-message { font-size: 14.5px !important; line-height: 1.9 !important; }
+.thankyou-sign { font-size: 16px !important; }
+
+/* Shared secondary text and navigation — slightly easier to read, still understated. */
+.page-number { font-size: 12px !important; }
+.gallery-modal__panel .eyebrow { font-size: 12px !important; }
+.modal-caption { font-size: 12px !important; }
+.lightbox-count { font-size: 13px !important; }
+.gallery-empty-slot strong { font-size: 12px !important; }
+.gallery-empty-slot small { font-size: 10px !important; }
+.gallery-preview-badge { font-size: 10px !important; }
+
+/* Keep compact screens legible without forcing controls outside their page. */
+@media (max-width: 380px) {
+  .invitation-copy { font-size: 14px !important; }
+  .parent-lines { font-size: 11.5px !important; }
+  .parent-lines strong { font-size: 15px !important; }
+  .direction-page .bank-row strong { font-size: 8.4px !important; }
+  .direction-page .bank-row span { font-size: 8.1px !important; }
+  .choice span { font-size: 10px !important; padding-left: 3px !important; padding-right: 3px !important; }
+  .thankyou-message { font-size: 13.5px !important; }
+}
+
+/* Brief first-open swipe hint. The overlay is decorative and never intercepts touch input. */
+.swipe-intro-hint {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.swipe-intro-hint.is-visible { visibility: visible; }
+.swipe-intro-hint img {
+  display: block;
+  width: min(253px, 72vw);
+  height: auto;
+  max-height: 30vh;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 28px rgba(35, 27, 20, .16));
+  transform-origin: center;
+}
+.swipe-intro-hint.is-visible img {
+  animation: swipeIntroLife 1.5s cubic-bezier(.22,.72,.26,1) both;
+}
+@keyframes swipeIntroLife {
+  0% { opacity: 0; transform: translateY(7px) scale(.965); }
+  10% { opacity: 1; transform: translateY(0) scale(1); }
+  78% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-3px) scale(1.015); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .swipe-intro-hint.is-visible img {
+    animation: swipeIntroLife 1.5s linear both;
+  }
+}
+
+
+/* V26: remove the lower-right passport seal from the final page. */
+.thankyou-page .final-stamp { display:none !important; }
+</style>
+
+</head>
+<body>
+<div class="swipe-intro-hint" id="swipe-intro-hint" aria-hidden="true"><img src="assets/swipe-guide.png" alt="" draggable="false"></div>
+
+<main class="invitation-app">
+    <header class="topbar" aria-label="청첩장 제목">
+      <span class="topbar__brand">OUR EVER AFTER</span>
+      <span class="topbar__edition">A JOURNEY TO FOREVER</span>
+    </header>
+
+    <section class="viewer" aria-label="페이지형 모바일 청첩장">
+      <div class="book-stage" aria-label="청첩장 책">
+        <div class="book" id="book" aria-live="polite"></div>
+      </div>
+
+      <nav class="page-controls" aria-label="페이지 이동">
+        <button class="nav-arrow" id="prev-page" type="button" aria-label="이전 페이지" disabled>
+          <span aria-hidden="true">‹</span>
+        </button>
+        <div class="page-progress">
+          <span id="page-counter">1 / 6</span>
+          <span class="progress-track"><i id="progress-fill"></i></span>
+        </div>
+        <button class="nav-arrow" id="next-page" type="button" aria-label="다음 페이지">
+          <span aria-hidden="true">›</span>
+        </button>
+      </nav>
+      <nav class="page-jump-nav" id="page-jump-nav" aria-label="페이지 바로가기">
+        <button type="button" class="page-jump-button is-active" data-jump-page="0" aria-label="1페이지" aria-current="page">1</button>
+        <button type="button" class="page-jump-button" data-jump-page="1" aria-label="2페이지">2</button>
+        <button type="button" class="page-jump-button" data-jump-page="2" aria-label="3페이지">3</button>
+        <button type="button" class="page-jump-button" data-jump-page="3" aria-label="4페이지">4</button>
+        <button type="button" class="page-jump-button" data-jump-page="4" aria-label="5페이지">5</button>
+        <button type="button" class="page-jump-button" data-jump-page="5" aria-label="6페이지">6</button>
+      </nav>
+    </section>
+
+    <footer class="footer-note">MADE WITH LOVE · 2027</footer>
+  </main>
+
+  <div class="gallery-modal" id="gallery-modal" aria-hidden="true">
+    <div class="gallery-modal__backdrop" data-close-gallery></div>
+    <section class="gallery-modal__panel" role="dialog" aria-modal="true" aria-labelledby="gallery-title">
+      <button class="modal-close" type="button" aria-label="갤러리 닫기" data-close-gallery>×</button>
+      <p class="eyebrow">OUR LITTLE MOMENTS</p>
+      <h2 id="gallery-title">함께한 순간들</h2>
+      <p class="modal-caption">사진을 선택하면 크게 볼 수 있습니다.</p>
+      <div class="gallery-grid" id="gallery-grid"></div>
+      <div class="gallery-lightbox" id="gallery-lightbox" aria-hidden="true">
+        <button class="lightbox-close" type="button" aria-label="사진 닫기">×</button>
+        <button class="lightbox-prev" type="button" aria-label="이전 사진">‹</button>
+        <img id="lightbox-image" src="" alt="확대된 웨딩 사진">
+        <button class="lightbox-next" type="button" aria-label="다음 사진">›</button>
+        <span class="lightbox-count" id="lightbox-count"></span>
+      </div>
+    </section>
+  </div>
+
+<script>
+// The invitation pages are rendered immediately. The optional page-curl engine
+// is imported afterwards so a slow/blocked CDN can never leave a beige blank screen.
+
+/*
+ * OUR EVER AFTER – A Journey to Forever
+ * QUICK EDIT GUIDE
+ * 1) Edit INVITATION below for names, date, venue, contacts and account details.
+ * 2) Replace photos in the assets folder using the same filenames, or update their paths below.
+ * 3) Add extra gallery photos to GALLERY_PHOTOS; up to ten extra spaces are provided.
+ * 4) Keep index.html in the repository root for GitHub Pages.
+ */
+
+const INVITATION = {
+  groom: '이진원',
+  bride: '서희',
+  dateTime: '2027-02-27T17:00:00+09:00',
+  venue: '하우스 오브 더 라움',
+  venuePhoto: 'https://www.iwedding.co.kr/_next/image?q=75&url=https%3A%2F%2Fwww.iwedding.co.kr%2Fcenter%2Fwebsite%2Fbrandplus%2F1754473398.jpg&w=1080',
+  address: '서울특별시 광진구 능동로 81, 지하 1층 B106호',
+  groomParents: '신랑 측 부모님 성함',
+  brideParents: '신부 측 부모님 성함',
+  contacts: [
+    { label: '신랑', value: '010-0000-0000' },
+    { label: '신부', value: '010-0000-0000' },
+    { label: '신랑 어머니', value: '010-0000-0000' },
+    { label: '신부 아버지', value: '010-0000-0000' },
+    { label: '신부 어머니', value: '010-0000-0000' }
+  ],
+  transport: '2호선·7호선 건대입구역 5번 출구 도보 약 2분',
+  parking: '하객 2시간 무료 주차 안내 (최종 조건은 예식장 확인)',
+  accounts: [
+    { label: '신랑', bank: '은행명', number: '계좌번호 입력', holder: '예금주' },
+    { label: '신부', bank: '은행명', number: '계좌번호 입력', holder: '예금주' },
+    { label: '신랑 어머니', bank: '은행명', number: '계좌번호 입력', holder: '예금주' },
+    { label: '신부 아버지', bank: '은행명', number: '계좌번호 입력', holder: '예금주' },
+    { label: '신부 어머니', bank: '은행명', number: '계좌번호 입력', holder: '예금주' }
+  ],
+  mapUrl: 'https://map.naver.com/p/search/%ED%95%98%EC%9A%B0%EC%8A%A4%20%EC%98%A4%EB%B8%8C%20%EB%8D%94%20%EB%9D%BC%EC%9B%80'
+};
+
+// Add as many photos as you like. Put image files in /assets and add one object per photo.
+const GALLERY_PHOTOS = [
+  { src: 'assets/couple-cover.jpg', alt: '초록빛 아치 아래 함께한 웨딩 사진', caption: 'A lovely beginning' },
+  { src: 'assets/couple-proposal.jpg', alt: '서로를 바라보는 두 사람의 웨딩 사진', caption: 'A promise for always' },
+  { src: 'assets/gallery-03-preview.jpg', alt: '여행 갤러리 교체용 미리보기 사진', caption: 'Preview · Replace Photo', placeholder: true }
+];
+
+// The '더보기' gallery includes ten additional empty photo slots.
+// Add images to assets/ and insert them into GALLERY_PHOTOS to fill these slots.
+const EXTRA_GALLERY_CAPACITY = 10;
+const addedGalleryCount = Math.max(0, GALLERY_PHOTOS.length - 3);
+const GALLERY_EMPTY_SLOTS = Array.from(
+  { length: Math.max(0, EXTRA_GALLERY_CAPACITY - addedGalleryCount) },
+  (_, index) => {
+    const slotNumber = GALLERY_PHOTOS.length + index + 1;
+    return {
+      slotNumber,
+      label: `PHOTO ${String(slotNumber).padStart(2, '0')}`
+    };
+  }
+);
+
+const $ = (selector, root = document) => root.querySelector(selector);
+const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+const escapeHTML = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+}[char]));
+
+const pages = [renderCover, renderInvitation, renderDate, renderTravel, renderDirections, renderThankYou];
+let currentPage = 0;
+let turning = false;
+let pageFlip = null;
+let lightboxIndex = 0;
+let fallbackHasBeenUsed = false;
+
+function dateParts() {
+  const date = new Date(INVITATION.dateTime);
+  const dateTokens = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit'
+  }).formatToParts(date);
+  const token = (type) => dateTokens.find((part) => part.type === type)?.value;
+  const year = Number(token('year'));
+  const month = Number(token('month')) - 1;
+  const day = Number(token('day'));
+  const timeLabel = new Intl.DateTimeFormat('ko-KR', {
+    timeZone: 'Asia/Seoul', hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+  }).format(date);
+  const weekdayLabel = new Intl.DateTimeFormat('ko-KR', {
+    timeZone: 'Asia/Seoul', weekday: 'long'
+  }).format(date);
+  const weekdayEn = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Seoul', weekday: 'short'
+  }).format(date).toUpperCase();
+  return {
+    date, year, month, day, timeLabel, weekdayLabel, weekdayEn,
+    dateLabel: `${year}. ${String(month + 1).padStart(2, '0')}. ${String(day).padStart(2, '0')}`
+  };
+}
+
+function ddayLabel() {
+  const target = dateParts();
+  const todayTokens = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit'
+  }).formatToParts(new Date());
+  const todayValue = (type) => Number(todayTokens.find((part) => part.type === type)?.value);
+  const todaySerial = Date.UTC(todayValue('year'), todayValue('month') - 1, todayValue('day'));
+  const targetSerial = Date.UTC(target.year, target.month, target.day);
+  const diff = Math.round((targetSerial - todaySerial) / 86400000);
+  return diff > 0 ? `D - ${diff}` : diff < 0 ? `D + ${Math.abs(diff)}` : 'D-DAY';
+}
+
+function pageNumber(number) {
+  return `<div class="page-number">${number} / 6</div>`;
+}
+
+function renderCover() {
+  const d = dateParts();
+  return `<article class="paper-page cover-page" aria-label="1페이지 표지">
+    <img class="cover-photo" src="assets/couple-cover.jpg" alt="초록빛 아치 아래 함께한 신랑 신부">
+    <div class="cover-wash"></div><div class="cover-frame"></div>
+    <div class="airmail-stamp">✈<br><small>POST · LOVE</small></div>
+    <div class="cover-copy"><h1 class="cover-script">Our Ever After</h1><p class="cover-tagline">A Journey to Forever</p></div>
+    <div class="cover-bottom"><p class="cover-flight">✈　· · · · · ·</p><p class="cover-names">${escapeHTML(INVITATION.groom)} <span>·</span> ${escapeHTML(INVITATION.bride)}</p><p class="cover-date">${d.dateLabel}　${d.timeLabel}</p><p class="cover-venue">${escapeHTML(INVITATION.venue)}</p></div>
+    ${pageNumber(1)}
+  </article>`;
+}
+
+function renderInvitation() {
+  const d = dateParts();
+  return `<article class="paper-page invitation-page" aria-label="2페이지 초대의 글">
+    <div class="invitation-outside-paper" aria-hidden="true"></div>
+    <div class="airmail-stamp">✈<br><small>INVITATION</small></div>
+    <div class="page-inner">
+      <p class="page-eyebrow">I N V I T A T I O N</p>
+      <div class="ornament"></div>
+      <p class="invitation-copy">서로가 있기에,<br>오늘도 더 빛나는 우리<br><br>이제, 두 사람이 새로운 시작을<br>함께하려 합니다.<br><br>소중한 걸음으로 축복해 주시면<br>더없는 기쁨으로 간직하겠습니다.</p>
+      <div class="parent-lines">
+        <div><span>신랑 측</span><strong>${escapeHTML(INVITATION.groomParents)}</strong><span>의 아들 ${escapeHTML(INVITATION.groom)}</span></div>
+        <div><span>신부 측</span><strong>${escapeHTML(INVITATION.brideParents)}</strong><span>의 딸 ${escapeHTML(INVITATION.bride)}</span></div>
+      </div>
+      <p class="invitation-signoff">${d.year}년 ${d.month + 1}월 ${d.day}일 ${d.weekdayLabel}<br>${d.timeLabel}<br><br>${escapeHTML(INVITATION.venue)}</p>
+    </div>
+    ${pageNumber(2)}
+  </article>`;
+}
+
+function renderCalendar() {
+  const { year, month, day } = dateParts();
+  const firstDay = new Date(year, month, 1).getDay();
+  const lastDate = new Date(year, month + 1, 0).getDate();
+  const weekdays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+  let cells = weekdays.map((d) => `<span class="weekday">${d}</span>`).join('');
+  for (let i = 0; i < firstDay; i++) cells += '<span class="calendar-empty"></span>';
+  for (let n = 1; n <= lastDate; n++) {
+    const value = n === day
+      ? `<b class="event-day" aria-label="예식일 ${n}일"><svg viewBox="0 0 48 44" aria-hidden="true"><path d="M24 41 C20 37 7 27 7 17 C7 9 16 5 24 14 C32 5 41 9 41 17 C41 27 28 37 24 41Z"/></svg><span>${n}</span></b>`
+      : `${n}`;
+    cells += `<span class="calendar-day">${value}</span>`;
+  }
+  return `<div class="calendar-shell calendar-shell--extended">
+    <svg class="calendar-floral-frame" viewBox="0 0 360 290" preserveAspectRatio="none" aria-hidden="true">
+      <rect x="8" y="8" width="344" height="274" rx="15" fill="none" stroke="#bd9d78" stroke-opacity=".48" stroke-width="1"/>
+      <rect x="13" y="13" width="334" height="264" rx="12" fill="none" stroke="#d2b99a" stroke-opacity=".55" stroke-width=".7"/>
+      <g fill="none" stroke="#ad8e6b" stroke-width="1.05" stroke-linecap="round" stroke-linejoin="round" opacity=".82">
+        <path d="M18 67 C28 48 39 34 58 24 M25 51 C17 44 17 35 22 30 C31 33 34 40 31 48 M36 38 C35 27 41 20 50 19 C54 27 50 36 40 41 M48 29 C55 20 65 19 72 25 C69 34 60 38 49 35"/>
+        <path d="M342 67 C332 48 321 34 302 24 M335 51 C343 44 343 35 338 30 C329 33 326 40 329 48 M324 38 C325 27 319 20 310 19 C306 27 310 36 320 41 M312 29 C305 20 295 19 288 25 C291 34 300 38 311 35"/>
+        <path d="M18 254 C27 263 40 270 57 272 M24 264 C17 260 15 253 19 247 C27 249 31 255 29 263 M38 268 C35 277 40 282 48 284 C53 278 50 271 42 266 M49 271 C57 279 66 280 73 275 C69 267 61 265 51 267"/>
+        <path d="M342 254 C333 263 320 270 303 272 M336 264 C343 260 345 253 341 247 C333 249 329 255 331 263 M322 268 C325 277 320 282 312 284 C307 278 310 271 318 266 M311 271 C303 279 294 280 287 275 C291 267 299 265 309 267"/>
+        <path d="M90 276 C101 268 111 268 122 276 M238 276 C249 268 259 268 270 276" opacity=".4"/>
+      </g>
+      <g fill="#b59672" opacity=".78">
+        <circle cx="22" cy="30" r="2.7"/><circle cx="338" cy="30" r="2.7"/>
+        <circle cx="22" cy="260" r="2.2"/><circle cx="338" cy="260" r="2.2"/>
+      </g>
+    </svg>
+    <div class="calendar">
+      <div class="calendar-month">${new Date(year, month).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</div>
+      <div class="calendar-grid">${cells}</div>
+    </div>
+  </div>`;
+}
+
+function renderDate() {
+  const d = dateParts();
+  return `<article class="paper-page date-page" aria-label="3페이지 예식 날짜">
+    <div class="airmail-stamp">✈<br><small>POST · DATE</small></div>
+    <div class="page-inner date-page-inner">
+      <p class="page-eyebrow">S A V E　T H E　D A T E</p>
+      <div class="date-card"><div class="date-main">${d.dateLabel}</div><div class="date-time">${d.weekdayEn}　${d.timeLabel}</div></div>
+      <div class="ornament date-ornament"></div>
+      ${renderCalendar()}
+      <p class="calendar-note">두 사람의 첫 시작,<br>함께해 주세요.</p>
+      <div class="dday date-dday-bottom" id="live-dday" aria-live="polite">${ddayLabel()}</div>
+    </div>
+    ${pageNumber(3)}
+  </article>`;
+}
+
+function renderTravel() {
+  const photos = GALLERY_PHOTOS.slice(0, 3);
+  const cards = photos.map((photo, index) => `<figure class="stamp-photo${photo.placeholder ? ' stamp-photo--preview' : ''}">${photo.placeholder ? '<span class="photo-preview-label">PREVIEW PHOTO</span>' : ''}<img src="${escapeHTML(photo.src)}" alt="${escapeHTML(photo.alt)}"><figcaption>${escapeHTML(photo.caption || `Memory ${index + 1}`)}</figcaption></figure>`).join('');
+  return `<article class="paper-page travel-page" aria-label="4페이지 여행 기록">
+    <div class="airmail-stamp">✈<br><small>TRAVEL LOG</small></div>
+    <div class="page-inner">
+      <p class="page-eyebrow">T R A V E L　L O G</p>
+      <p class="travel-intro">우리의 순간들이 모여 하나의 여행이 됩니다.</p>
+      <div class="postcard-layout">${cards || '<p>사진을 추가해 주세요.</p>'}</div>
+      <p class="travel-quote">Together, Always ♡</p>
+      <button type="button" class="more-button" data-action="open-gallery">+ 더보기　·　사진 갤러리</button>
+    </div>
+    ${pageNumber(4)}
+  </article>`;
+}
+
+function renderFamilyColumns(items, renderRow, kind) {
+  const groomLabels = new Set(['신랑', '신랑 어머니']);
+  const leftItems = items.filter((item) => groomLabels.has(item.label));
+  const rightItems = items.filter((item) => !groomLabels.has(item.label));
+  const column = (title, selected) => `<section class="family-column">
+    <h4 class="family-column-title">${title}</h4>
+    <div class="family-record-list family-record-list--${kind}">${selected.map(renderRow).join('')}</div>
+  </section>`;
+  return `<div class="family-columns family-columns--${kind}">
+    ${column('신랑 측', leftItems)}
+    ${column('신부 측', rightItems)}
+  </div>`;
+}
+
+function renderContactInfo() {
+  return renderFamilyColumns(INVITATION.contacts, (item) =>
+    `<div class="family-contact-row"><strong>${escapeHTML(item.label)}</strong><span>${escapeHTML(item.value)}</span></div>`, 'contact');
+}
+
+function renderAccountInfo() {
+  return renderFamilyColumns(INVITATION.accounts, (item) =>
+    `<div class="family-account-row"><div class="family-account-head"><strong>${escapeHTML(item.label)}</strong><small>${escapeHTML(item.holder)}</small></div><span>${escapeHTML(item.bank)} · ${escapeHTML(item.number)}</span></div>`, 'account');
+}
+
+function renderDirections() {
+  return `<article class="paper-page direction-page" aria-label="5페이지 오시는 길">
+    <div class="airmail-stamp">✈<br><small>JOURNEY MAP</small></div>
+    <div class="page-inner">
+      <p class="page-eyebrow">D I R E C T I O N S</p>
+      <div class="venue-photo-wrap">
+        <img class="venue-photo" src="${escapeHTML(INVITATION.venuePhoto)}" alt="하우스 오브 더 라움 웨딩홀 버진로드 전경" loading="eager" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+        <div class="venue-photo-placeholder" hidden><span class="venue-placeholder-title">HOUSE OF THE RAUM</span><span class="venue-placeholder-text">VENUE PHOTO UNAVAILABLE</span></div>
+      </div>
+      <h2 class="venue-name">${escapeHTML(INVITATION.venue)}</h2>
+      <p class="venue-address">⌖　${escapeHTML(INVITATION.address)}</p>
+      <a class="map-button" href="${escapeHTML(INVITATION.mapUrl)}" target="_blank" rel="noopener">▤　지도 보기　›</a>
+      <div class="directions-details">
+        <p><strong>대중교통</strong>　${escapeHTML(INVITATION.transport)}</p>
+        <p><strong>주차 안내</strong>　${escapeHTML(INVITATION.parking)}</p>
+        <div class="ornament"></div>
+        <div class="small-caps family-section-title">C O N T A C T</div>
+        <div class="contact-grid">${renderContactInfo()}</div>
+        <div class="bank-info"><div class="small-caps family-section-title">G I F T　A C C O U N T</div><div class="bank-grid">${renderAccountInfo()}</div></div>
+      </div>
+    </div>
+    ${pageNumber(5)}
+  </article>`;
+}
+
+function renderThankYou() {
+  return `<article class="paper-page thankyou-page" aria-label="6페이지 감사 인사">
+    <img class="thankyou-photo" src="assets/couple-proposal.jpg" alt="서로를 바라보며 웃는 두 사람의 사진">
+    <div class="thankyou-wash"></div><div class="thankyou-frame"></div>
+    <div class="airmail-stamp">✈<br><small>OUR JOURNEY</small></div>
+    <div class="thankyou-content">
+      <h2 class="thankyou-script">Thank you ♡</h2>
+      <p class="thankyou-message">저희 두 사람의 새로운 시작에<br>함께해 주셔서 감사합니다.<br><br>보내주신 따뜻한 마음 오래 간직하며<br>행복한 모습으로 살아가겠습니다.</p>
+      <div class="ornament"></div>
+      <p class="thankyou-sign">${escapeHTML(INVITATION.groom)} · ${escapeHTML(INVITATION.bride)} 드림</p>
+    </div>
+    ${pageNumber(6)}
+  </article>`;
+}
+
+function updateControls() {
+  if (pageFlip && pageFlip.isReady()) currentPage = pageFlip.getCurrentPageIndex();
+  const busy = (pageFlip && pageFlip.isReady()) ? pageFlip.isAnimating() : (turning || $('#book').classList.contains('is-engine-loading'));
+  $('#page-counter').textContent = `${currentPage + 1} / ${pages.length}`;
+  $('#progress-fill').style.width = `${((currentPage + 1) / pages.length) * 100}%`;
+  $('#prev-page').disabled = currentPage === 0 || busy;
+  $('#next-page').disabled = currentPage === pages.length - 1 || busy;
+  $$('.page-jump-button').forEach((button, index) => {
+    const active = index === currentPage;
+    button.classList.toggle('is-active', active);
+    button.toggleAttribute('aria-current', active);
+    if (active) button.setAttribute('aria-current', 'page');
+    else button.removeAttribute('aria-current');
+    button.disabled = busy;
+  });
+}
+
+function setFallbackPage(index) {
+  const root = $('#book');
+  const leaves = $$('.page', root);
+  leaves.forEach((leaf, i) => {
+    leaf.classList.remove('is-current', 'is-under', 'is-turning-next', 'is-turning-prev');
+    leaf.setAttribute('aria-hidden', i === index ? 'false' : 'true');
+  });
+  if (leaves[index]) leaves[index].classList.add('is-current');
+}
+
+function finishFallbackTurn(nextIndex) {
+  currentPage = nextIndex;
+  turning = false;
+  setFallbackPage(currentPage);
+  updateControls();
+}
+
+function turnFallbackPage(direction) {
+  const root = $('#book');
+  if (turning || !root.classList.contains('is-fallback')) return;
+  const nextIndex = direction === 'next' ? currentPage + 1 : currentPage - 1;
+  if (nextIndex < 0 || nextIndex >= pages.length) return;
+  fallbackHasBeenUsed = true;
+
+  const leaves = $$('.page', root);
+  const currentLeaf = leaves[currentPage];
+  const underLeaf = leaves[nextIndex];
+  if (!currentLeaf || !underLeaf) return;
+
+  turning = true;
+  underLeaf.classList.add('is-under');
+  underLeaf.setAttribute('aria-hidden', 'false');
+  currentLeaf.classList.add(direction === 'next' ? 'is-turning-next' : 'is-turning-prev');
+  updateControls();
+
+  let finished = false;
+  const finish = () => {
+    if (finished) return;
+    finished = true;
+    finishFallbackTurn(nextIndex);
+  };
+  currentLeaf.addEventListener('transitionend', (event) => {
+    if (event.target === currentLeaf && event.propertyName === 'transform') finish();
+  }, { once: true });
+  // Safety net in case a browser skips transitionend (for example, background tabs).
+  window.setTimeout(finish, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 80 : 1080);
+}
+
+function attachFallbackGestures() {
+  const root = $('#book');
+  let start = null;
+  root.addEventListener('pointerdown', (event) => {
+    if (!root.classList.contains('is-fallback') || !event.isPrimary) return;
+    if (event.target.closest('button, a, input, select, textarea, label')) return;
+    start = { x: event.clientX, y: event.clientY, pointerId: event.pointerId };
+  });
+  root.addEventListener('pointerup', (event) => {
+    if (!start || event.pointerId !== start.pointerId) return;
+    const dx = event.clientX - start.x;
+    const dy = event.clientY - start.y;
+    start = null;
+    if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.15) {
+      turnPage(dx < 0 ? 'next' : 'prev');
+    }
+  });
+  root.addEventListener('pointercancel', () => { start = null; });
+}
+
+function initializeBook() {
+  const root = $('#book');
+  root.innerHTML = pages.map((render, index) =>
+    `<div class="page" data-density="soft" data-page-index="${index}">
+      <div class="page-content">${render()}</div>
+      <div class="page-backface" aria-hidden="true"></div>
+    </div>`
+  ).join('');
+  root.classList.add('is-fallback');
+  currentPage = Math.max(0, Math.min(pages.length - 1, Number(new URLSearchParams(location.search).get('page') || 1) - 1));
+  setFallbackPage(currentPage);
+  attachFallbackGestures();
+  updateControls();
+}
+
+function jumpToPage(index) {
+  if (!Number.isInteger(index) || index < 0 || index >= pages.length || turning) return;
+  if (pageFlip && pageFlip.isReady()) {
+    // This standalone preview uses the local fallback renderer; retain a safe fallback if an engine is added later.
+    currentPage = index;
+    updateControls();
+    return;
+  }
+  currentPage = index;
+  setFallbackPage(currentPage);
+  updateControls();
+}
+
+function turnPage(direction) {
+  if (pageFlip && pageFlip.isReady()) {
+    if (pageFlip.isAnimating()) return;
+    if (direction === 'next' && pageFlip.canTurn('next')) pageFlip.flipNext();
+    if (direction === 'prev' && pageFlip.canTurn('prev')) pageFlip.flipPrev();
+    updateControls();
+    return;
+  }
+  turnFallbackPage(direction);
+}
+
+function openGallery() {
+  const grid = $('#gallery-grid');
+  const photoCards = GALLERY_PHOTOS.map((photo, index) => `<button class="gallery-thumb${photo.placeholder ? ' gallery-thumb--preview' : ''}" type="button" data-photo-index="${index}" aria-label="${escapeHTML(photo.alt)}"><img src="${escapeHTML(photo.src)}" alt="${escapeHTML(photo.alt)}">${photo.placeholder ? '<span class="gallery-preview-badge">PREVIEW</span>' : ''}</button>`).join('');
+  const emptyCards = GALLERY_EMPTY_SLOTS.map((slot) => `<div class="gallery-empty-slot" aria-label="${slot.label} 사진 추가 자리"><span class="gallery-empty-slot__plus">＋</span><strong>${slot.label}</strong><small>사진 추가 예정</small></div>`).join('');
+  grid.innerHTML = photoCards + emptyCards;
+  $('#gallery-modal').classList.add('is-open');
+  $('#gallery-modal').setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeGallery() {
+  $('#gallery-modal').classList.remove('is-open');
+  $('#gallery-modal').setAttribute('aria-hidden', 'true');
+  closeLightbox();
+  document.body.style.overflow = '';
+}
+
+function showLightbox(index) {
+  if (!GALLERY_PHOTOS.length) return;
+  lightboxIndex = (index + GALLERY_PHOTOS.length) % GALLERY_PHOTOS.length;
+  const photo = GALLERY_PHOTOS[lightboxIndex];
+  $('#lightbox-image').src = photo.src;
+  $('#lightbox-image').alt = photo.alt;
+  $('#lightbox-count').textContent = `${lightboxIndex + 1} / ${GALLERY_PHOTOS.length}`;
+  $('#gallery-lightbox').classList.add('is-open');
+  $('#gallery-lightbox').setAttribute('aria-hidden', 'false');
+}
+
+function closeLightbox() {
+  $('#gallery-lightbox').classList.remove('is-open');
+  $('#gallery-lightbox').setAttribute('aria-hidden', 'true');
+}
+
+$('#prev-page').addEventListener('click', () => turnPage('prev'));
+$('#next-page').addEventListener('click', () => turnPage('next'));
+$('#page-jump-nav').addEventListener('click', (event) => {
+  const button = event.target.closest('[data-jump-page]');
+  if (button) jumpToPage(Number(button.dataset.jumpPage));
+});
+$('#book').addEventListener('click', (event) => {
+  const action = event.target.closest('[data-action]')?.dataset.action;
+  if (action === 'open-gallery') openGallery();
+});
+$('#gallery-modal').addEventListener('click', (event) => {
+  if (event.target.closest('[data-close-gallery]')) closeGallery();
+  const thumb = event.target.closest('[data-photo-index]');
+  if (thumb) showLightbox(Number(thumb.dataset.photoIndex));
+});
+$('#gallery-lightbox').addEventListener('click', (event) => {
+  if (event.target.closest('.lightbox-close')) closeLightbox();
+  if (event.target.closest('.lightbox-prev')) showLightbox(lightboxIndex - 1);
+  if (event.target.closest('.lightbox-next')) showLightbox(lightboxIndex + 1);
+});
+
+window.addEventListener('keydown', (event) => {
+  if ($('#gallery-modal').classList.contains('is-open')) {
+    if (event.key === 'Escape') closeGallery();
+    if ($('#gallery-lightbox').classList.contains('is-open')) {
+      if (event.key === 'ArrowLeft') showLightbox(lightboxIndex - 1);
+      if (event.key === 'ArrowRight') showLightbox(lightboxIndex + 1);
+    }
+    return;
+  }
+  if (event.key === 'ArrowRight') turnPage('next');
+  if (event.key === 'ArrowLeft') turnPage('prev');
+});
+
+// Static draft preview: render the requested page without external dependencies.
+initializeBook();
+
+// Start the 1.5-second swipe hint after the invitation has had a chance to render.
+const swipeIntroHint = document.getElementById('swipe-intro-hint');
+if (swipeIntroHint) {
+  const removeSwipeHint = () => swipeIntroHint.remove();
+  const swipeHintImage = swipeIntroHint.querySelector('img');
+  swipeHintImage.addEventListener('animationend', removeSwipeHint, { once: true });
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    swipeIntroHint.classList.add('is-visible');
+  }));
+  window.setTimeout(removeSwipeHint, 1800);
+}
+// D-day is calculated from the current date in Korea Standard Time and refreshes while open.
+const refreshWeddingCountdown = () => {
+  const node = document.getElementById('live-dday');
+  if (node) node.textContent = ddayLabel();
+};
+refreshWeddingCountdown();
+window.setInterval(refreshWeddingCountdown, 60_000);
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) refreshWeddingCountdown();
+});
+
+</script>
+</body>
+</html>
