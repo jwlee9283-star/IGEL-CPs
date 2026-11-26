@@ -2646,7 +2646,7 @@ function renderTravel() {
 }
 
 function renderFamilyColumns(items, renderRow, kind) {
-  const groomLabels = new Set(['신랑', '신랑 어머니']);
+  const groomLabels = new Set(['이진원', '김해중']);
   const leftItems = items.filter((item) => groomLabels.has(item.label));
   const rightItems = items.filter((item) => !groomLabels.has(item.label));
   const column = (title, selected) => `<section class="family-column">
